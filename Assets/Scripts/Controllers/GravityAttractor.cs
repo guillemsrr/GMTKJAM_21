@@ -11,9 +11,14 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private SphereCollider m_sphereCollider;
 
+    public bool dontAffectForce;
+
+    Transform player;
+
     public void Attract(Transform body)
     {
-        Attract(body, gravity, false, false);
+        if(player)
+            Attract(body, gravity, false, false);
     }
 
     public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot)
@@ -24,7 +29,7 @@ public class GravityAttractor : MonoBehaviour
         Quaternion targetRotation = Quaternion.identity;
         if (!dontAffectForce)
         {
-            body.GetComponent<Rigidbody>().AddForce(targetDir * customGravity);
+            body.GetComponent<PlayerController>().AddForce(targetDir * customGravity);
         }
         if (!dontAffectRot)
             targetRotation = Quaternion.FromToRotation(bodyUp, targetDir) * body.rotation;
@@ -32,9 +37,33 @@ public class GravityAttractor : MonoBehaviour
         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 1);
     }
 
+    private void FixedUpdate()
+    {
+
+        if (!dontAffectForce)
+            Attract(player);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, m_sphereCollider.radius);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            dontAffectForce = false;
+            player = other.transform;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            dontAffectForce = true;
+            player = null;
+        }
     }
 }
