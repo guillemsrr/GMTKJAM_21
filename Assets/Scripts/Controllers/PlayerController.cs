@@ -6,14 +6,15 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 userInput;
     [SerializeField]
-    private float speed = 20f;
+    private float speed = 100;
     [SerializeField]
     private float moveLimiter = 0.7f;
+    [SerializeField]
+    private float maxSpeed = 10;
 
     Rigidbody m_Rigidbody;
 
-    GravityAttractor attractor;
-    public bool dontAffectForce;
+
 
     void Start()
     {
@@ -26,14 +27,6 @@ public class PlayerController : MonoBehaviour
         ReadInputs();
         UpdatePlayer();
     }
-
-    private void FixedUpdate()
-    {
- 
-        if(attractor && !dontAffectForce)
-            attractor.Attract(transform);
-    }
-
 
     private void ReadInputs()
     {
@@ -50,28 +43,14 @@ public class PlayerController : MonoBehaviour
             movement *= moveLimiter;
         }
 
-        Vector3 camForward = Vector3.Scale(Camera.main.transform.up, new Vector3(1, 0, 1)).normalized;
-        Vector3 move = userInput.y * camForward + userInput.x * Camera.main.transform.right;
+        AddForce(movement * speed * Time.deltaTime);
+    }
 
-        if (move.magnitude > 1)
+    public void AddForce(Vector3 force)
+    {
+        if (m_Rigidbody.velocity.magnitude < maxSpeed)
         {
-            move.Normalize();
+            m_Rigidbody.AddForce(force);
         }
-
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
-
-        Vector3 localMove = transform.InverseTransformDirection(move);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        dontAffectForce = false;
-        attractor = other.GetComponent<GravityAttractor>();
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        dontAffectForce = true;
-        attractor = null;
     }
 }
