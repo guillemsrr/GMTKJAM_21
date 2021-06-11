@@ -10,10 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float moveLimiter = 0.7f;
 
-    // Start is called before the first frame update
+    Rigidbody m_Rigidbody;
+
+    GravityAttractor attractor;
+    public bool dontAffectForce;
+
     void Start()
     {
-        
+        m_Rigidbody = GetComponent<Rigidbody>();       
     }
 
     // Update is called once per frame
@@ -21,6 +25,13 @@ public class PlayerController : MonoBehaviour
     {
         ReadInputs();
         UpdatePlayer();
+    }
+
+    private void FixedUpdate()
+    {
+ 
+        if(attractor && !dontAffectForce)
+            attractor.Attract(transform);
     }
 
 
@@ -50,5 +61,17 @@ public class PlayerController : MonoBehaviour
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
 
         Vector3 localMove = transform.InverseTransformDirection(move);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        dontAffectForce = false;
+        attractor = other.GetComponent<GravityAttractor>();
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        dontAffectForce = true;
+        attractor = null;
     }
 }
