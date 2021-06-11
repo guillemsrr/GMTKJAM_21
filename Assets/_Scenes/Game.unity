@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 152719424}
   - component: {fileID: 152719421}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
