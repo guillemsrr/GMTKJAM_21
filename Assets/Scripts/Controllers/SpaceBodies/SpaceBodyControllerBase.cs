@@ -19,11 +19,13 @@ namespace Controllers
         [SerializeField] private SphereCollider _sphereCollider;
         [SerializeField] private SpaceBodyType _type;
         [SerializeField] protected AudioClip _eatAudio;
+        [SerializeField] private int _playerDamage = 3;
 
         private float _gravityForce;
         
         public Vector3 Position => _transform.position;
         public SpaceBodyType Type => _type;
+        public int PlayerDamage => _playerDamage;
 
         public virtual void Initialize()
         {

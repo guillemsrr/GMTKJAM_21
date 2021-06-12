@@ -8,15 +8,14 @@ namespace UI
         [SerializeField] private PlayerStateHandler _playerStateHandler;
         [SerializeField] private PlayerMissionsHandler _missionsHandler;
         [SerializeField] private LifeController _lifeController;
+        [SerializeField] private GameObject _gameOverObject;
 
         private void Awake()
         {
             if (!_playerStateHandler) return;
 
-            _playerStateHandler.DamagedEvent += DamageBars;
             _playerStateHandler.DeadEvent += ApplyGameOver;
             _playerStateHandler.PlanetEatenEvent += EatPlanet;
-            _playerStateHandler.LevelUpedEvent += CreateNewMissions;
         }
 
         private void DamageBars(float damage)
@@ -26,7 +25,7 @@ namespace UI
 
         private void ApplyGameOver()
         {
-            
+            _gameOverObject.SetActive(true);
         }
 
         private void EatPlanet(SpaceBodyControllerBase spaceBody)
@@ -34,16 +33,19 @@ namespace UI
             if (_missionsHandler.IsTypeInMission(spaceBody.Type))
             {
                 _playerStateHandler.EatMissionPlanet();
+                _missionsHandler.MissionAccomplished();
+                
+                if (_missionsHandler.AreAllMissionsAccomplished)
+                {
+                    _playerStateHandler.LevelUp();
+                    _missionsHandler.CreateMissions(_playerStateHandler.Level);
+                }
             }
             else
             {
-                _playerStateHandler.EatIncorrectPlanet();
+                _playerStateHandler.EatIncorrectPlanet(spaceBody);
+                DamageBars(spaceBody.PlayerDamage);
             }
-        }
-
-        private void CreateNewMissions()
-        {
-            _missionsHandler.CreateMissions(_playerStateHandler.Level);
         }
     }
 }

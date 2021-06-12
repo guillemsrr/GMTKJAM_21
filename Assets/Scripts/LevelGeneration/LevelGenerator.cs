@@ -103,6 +103,11 @@ namespace LevelGenerator
                 for (int i = numberBodies; i >= 0; i--)
                 {
                     if (_spaceBodies.Count < i) continue;
+                    if (_spaceBodies[i] == null)
+                    {
+                        _spaceBodies.RemoveAt(i);
+                        continue;
+                    }
 
                     float distance = (_spaceBodies[i].Position - _playerTransform.position).magnitude;
 
