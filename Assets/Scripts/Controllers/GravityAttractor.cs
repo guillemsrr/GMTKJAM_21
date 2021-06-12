@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,14 +12,36 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private SphereCollider m_sphereCollider;
 
-    public void SetGravity(float force)
-    {
-        gravity = force;
-    }
+    public bool dontAffectForce;
+
+    [SerializeField]
+    private Material triggerMat;
+
+    Transform player;
+    private GameObject trigger;
+
     
+
+    private void Start()
+    {
+        trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        trigger.transform.parent = transform;
+        trigger.GetComponent<Renderer>().material = triggerMat;
+        trigger.transform.position = transform.position;
+        trigger.transform.localScale *= m_sphereCollider.radius*2;
+        trigger.SetActive(false);
+
+        CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
+    }
+    public void HandlerIsDebug(object sender, EventArgs e)
+    {
+        trigger.SetActive(!trigger.active);
+    }
+
     public void Attract(Transform body)
     {
-        Attract(body, gravity, false, false);
+        if(player)
+            Attract(body, gravity, false, false);
     }
 
     public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot)
@@ -29,7 +52,7 @@ public class GravityAttractor : MonoBehaviour
         Quaternion targetRotation = Quaternion.identity;
         if (!dontAffectForce)
         {
-            body.GetComponent<Rigidbody>().AddForce(targetDir * customGravity);
+            body.GetComponent<PlayerController>().AddForce(targetDir * customGravity);
         }
         if (!dontAffectRot)
             targetRotation = Quaternion.FromToRotation(bodyUp, targetDir) * body.rotation;
@@ -37,9 +60,38 @@ public class GravityAttractor : MonoBehaviour
         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 1);
     }
 
-    private void OnDrawGizmos()
+    public void SetGravity(float force)
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, m_sphereCollider.radius);
+        gravity = force;
     }
+
+    private void FixedUpdate()
+    {
+        if (!dontAffectForce)
+            Attract(player);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            dontAffectForce = false;
+            player = other.transform;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            dontAffectForce = true;
+            player = null;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CoreManager.Instance.OnIsDebug -= HandlerIsDebug;
+    }
+
 }
