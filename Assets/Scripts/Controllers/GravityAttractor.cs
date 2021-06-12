@@ -70,6 +70,7 @@ public class GravityAttractor : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
+            Debug.Log("Enter");
             dontAffectForce = false;
             player = other.transform;
         }
@@ -79,6 +80,7 @@ public class GravityAttractor : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
+            Debug.Log("Exit");
             dontAffectForce = true;
             player = null;
         }

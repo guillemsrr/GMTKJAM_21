@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{
-    private Vector2 userInput;
+{    
     [SerializeField]
     private float speed = 100;
     [SerializeField]
@@ -12,25 +11,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float maxSpeed = 10;
 
-    Rigidbody m_Rigidbody;
+    private Vector2 userInput;
 
-
+    private Rigidbody m_Rigidbody;
 
     void Start()
     {
         m_Rigidbody = GetComponent<Rigidbody>();       
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         ReadInputs();
         UpdatePlayer();
     }
 
     private void ReadInputs()
-    {
-       
+    {       
         userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
