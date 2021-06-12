@@ -204,14 +204,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4763813246266920953, guid: 14e4858966b3e8a468b91522eb4b1e2e, type: 3}
-      propertyPath: m_UpdateMethod
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4763813246266920953, guid: 14e4858966b3e8a468b91522eb4b1e2e, type: 3}
-      propertyPath: m_BlendUpdateMethod
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4763813246266920957, guid: 14e4858966b3e8a468b91522eb4b1e2e, type: 3}
       propertyPath: m_Name
       value: Main Camera

@@ -12,7 +12,20 @@ public class CoreManager : MonoBehaviour
 
     private Tutorial tutorial;
 
-    public static CoreManager Instance;
+    private static CoreManager m_intance = null;
+    public static CoreManager Instance
+    {
+        get
+        {
+            if (m_intance == null)
+            {
+                GameObject go = new GameObject();
+                go.name = "CoreManager";
+                m_intance = go.AddComponent<CoreManager>();
+            }
+            return m_intance;
+        }
+    }
     public DialogeCanvas GetDialogeCanvas => dialogeCanvas;
 
     public bool IsDebug { get; private set; }
@@ -21,12 +34,13 @@ public class CoreManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        m_intance = this;
     }
 
     private void Start()
     {
-        StartTutorial();
+        if(dialogeCanvas)
+            StartTutorial();
     }
 
 
