@@ -18,7 +18,7 @@ namespace Controllers
         [SerializeField] private GravityAttractor _gravityAttractor;
         [SerializeField] private SphereCollider _sphereCollider;
         [SerializeField] private SpaceBodyType _type;
-        [SerializeField] private AudioClip _eatAudio;
+        [SerializeField] protected AudioClip _eatAudio;
 
         private float _gravityForce;
         

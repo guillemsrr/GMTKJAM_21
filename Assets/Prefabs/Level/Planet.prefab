@@ -15,6 +15,30 @@ MonoBehaviour:
   _transform: {fileID: 6664577269652723674}
   _gravityAttractor: {fileID: 6664577268204052888}
   _sphereCollider: {fileID: 6664577268204052965}
+  _type: 0
+  _eatAudio: {fileID: 0}
+  _meshRenderer: {fileID: 6664577268204052966}
+  _meshFilter: {fileID: 6664577268204052967}
+  _icePlanetVisuals:
+    _material: {fileID: 0}
+    _eatAudioClip: {fileID: 8300000, guid: 753a2a0875c68ae4ba997809d05f68e7, type: 3}
+    _mesh: {fileID: 0}
+  _magmaPlanetVisuals:
+    _material: {fileID: 0}
+    _eatAudioClip: {fileID: 8300000, guid: ff1b984c7ae551a40a6c4dc2c5a4845b, type: 3}
+    _mesh: {fileID: 0}
+  _ringsPlanetVisuals:
+    _material: {fileID: 0}
+    _eatAudioClip: {fileID: 8300000, guid: 8744908cf3d38c048b05800484a9f3d1, type: 3}
+    _mesh: {fileID: 0}
+  _waterPlanetVisuals:
+    _material: {fileID: 0}
+    _eatAudioClip: {fileID: 8300000, guid: 753a2a0875c68ae4ba997809d05f68e7, type: 3}
+    _mesh: {fileID: 0}
+  _radioActivePlanetVisuals:
+    _material: {fileID: 0}
+    _eatAudioClip: {fileID: 8300000, guid: 3af5997a3af3a7b479a152f875d66db9, type: 3}
+    _mesh: {fileID: 0}
 --- !u!1001 &8900725307194072803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +92,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Name
-      value: SpaceBody
+      value: Planet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
@@ -80,6 +104,16 @@ GameObject:
 --- !u!4 &6664577269652723674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 8900725307194072803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &6664577268204052967 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: 2880314973887921924, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 8900725307194072803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6664577268204052966 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
   m_PrefabInstance: {fileID: 8900725307194072803}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6664577268204052888 stripped
