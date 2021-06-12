@@ -26,7 +26,7 @@ namespace LevelGenerator
             _numberInstances = numberInstances;
         }
         
-        public SpaceBodyControllerBase GetRandomSpaceBody()
+        public SpaceBodyControllerBase.SpaceBodyType GetRandomSpaceBody()
         {
             SpaceBodyControllerBase.SpaceBodyType mostWeightOffset = SpaceBodyControllerBase.SpaceBodyType.Planet;
             float maxWeightOffset = 0f;
@@ -46,7 +46,7 @@ namespace LevelGenerator
             {
                 spaceBodyWeight.UpdateWeight(_numberInstances);
             }
-            return _spaceBodyReferences.GetSpaceBody(mostWeightOffset);
+            return mostWeightOffset;
         }
 
         public void Remove(SpaceBodyControllerBase.SpaceBodyType spaceBodyType)

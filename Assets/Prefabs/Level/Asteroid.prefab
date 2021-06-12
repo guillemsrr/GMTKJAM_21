@@ -15,6 +15,7 @@ MonoBehaviour:
   _transform: {fileID: 9001675321014238069}
   _gravityAttractor: {fileID: 9001675321014237961}
   _sphereCollider: {fileID: 9001675321014238068}
+  _type: 1
 --- !u!1001 &6563028026587071602
 PrefabInstance:
   m_ObjectHideFlags: 0

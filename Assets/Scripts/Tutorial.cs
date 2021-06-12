@@ -5,22 +5,22 @@ using UnityEngine;
 public class Tutorial
 {
     public int Max_steps { get; private set; }
-    private int current_step = -1;
+    private int _current_step = -1;
     
-    private TextConfiguration textConfiguration;
+    private TextConfiguration _textConfiguration;
 
     public Tutorial(TextConfiguration textConfiguration)
     {
-        this.textConfiguration = textConfiguration;
-        Max_steps = textConfiguration.tutorial_step.Length;
+        this._textConfiguration = textConfiguration;
+        Max_steps = textConfiguration._tutorial_step.Length;
     }
 
 
     public string GetNextStep()
     {
-        if (current_step > Max_steps) return "";
-        current_step++;
-        return textConfiguration.tutorial_step[current_step];
+        if (_current_step > Max_steps) return "";
+        _current_step++;
+        return _textConfiguration._tutorial_step[_current_step];
     }
 
 }

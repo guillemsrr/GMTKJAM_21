@@ -15,6 +15,7 @@ MonoBehaviour:
   _transform: {fileID: 6773320156142632010}
   _gravityAttractor: {fileID: 6773320157577529864}
   _sphereCollider: {fileID: 6773320157577529973}
+  _type: 3
 --- !u!1001 &8793073757870962035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Name
-      value: SpaceBody
+      value: Blackhole
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}

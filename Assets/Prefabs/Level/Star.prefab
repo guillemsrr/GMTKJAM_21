@@ -15,6 +15,7 @@ MonoBehaviour:
   _transform: {fileID: 3587756596217847347}
   _gravityAttractor: {fileID: 3587756597064509553}
   _sphereCollider: {fileID: 3587756597064509452}
+  _type: 2
 --- !u!1001 &1599528458605287178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Name
-      value: SpaceBody
+      value: Star
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
