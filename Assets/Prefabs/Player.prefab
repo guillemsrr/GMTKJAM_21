@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64da8b7022b0500428530cf5903e48eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 500
+  _speed: 5000
   _moveLimiter: 0.7
   _maxSpeed: 10
 --- !u!54 &784972198001258036
@@ -174,7 +174,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
