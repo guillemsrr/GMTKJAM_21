@@ -6,27 +6,27 @@ using UnityEngine;
 public class CoreManager : MonoBehaviour
 {
     [SerializeField]
-    private DialogeCanvas dialogeCanvas;
+    private DialogeCanvas _dialogeCanvas;
     [SerializeField]
-    private TextConfiguration textConfiguration;
+    private TextConfiguration _textConfiguration;
 
-    private Tutorial tutorial;
+    private Tutorial _tutorial;
 
-    private static CoreManager m_intance = null;
+    private static CoreManager _intance = null;
     public static CoreManager Instance
     {
         get
         {
-            if (m_intance == null)
+            if (_intance == null)
             {
                 GameObject go = new GameObject();
                 go.name = "CoreManager";
-                m_intance = go.AddComponent<CoreManager>();
+                _intance = go.AddComponent<CoreManager>();
             }
-            return m_intance;
+            return _intance;
         }
     }
-    public DialogeCanvas GetDialogeCanvas => dialogeCanvas;
+    public DialogeCanvas GetDialogeCanvas => _dialogeCanvas;
 
     public bool IsDebug { get; private set; }
 
@@ -34,15 +34,14 @@ public class CoreManager : MonoBehaviour
 
     private void Awake()
     {
-        m_intance = this;
+        _intance = this;
     }
 
     private void Start()
     {
-        if(dialogeCanvas)
+        if(_dialogeCanvas)
             StartTutorial();
     }
-
 
     private void Update()
     {
@@ -59,12 +58,12 @@ public class CoreManager : MonoBehaviour
 
     private void StartTutorial()
     {
-        tutorial = new Tutorial(textConfiguration);
-        dialogeCanvas.enabled = true;
-        for (int x = 0; x < tutorial.Max_steps; x++) {
-            GetDialogeCanvas.ActivateCanvasWithTextWithDelay(tutorial.GetNextStep(), 5*x);
+        _tutorial = new Tutorial(_textConfiguration);
+        _dialogeCanvas.enabled = true;
+        for (int x = 0; x < _tutorial.Max_steps; x++) {
+            GetDialogeCanvas.ActivateCanvasWithTextWithDelay(_tutorial.GetNextStep(), 5*x);
         }
 
-        GetDialogeCanvas.DeactivateCanvasWithDelay(5f* tutorial.Max_steps);
+        GetDialogeCanvas.DeactivateCanvasWithDelay(5f* _tutorial.Max_steps);
     }
 }

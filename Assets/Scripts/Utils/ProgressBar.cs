@@ -7,23 +7,23 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     [SerializeField]
-    Image foreground;
+    Image _foreground;
     [SerializeField]
-    float fakeTime = 5f;
-    float fakeCurrentTime;
+    float _fakeTime = 5f;
+    float _fakeCurrentTime;
 
     void Awake()
     {
-        foreground.fillAmount = 0.0f;
-        fakeCurrentTime = fakeTime;
+        _foreground.fillAmount = 0.0f;
+        _fakeCurrentTime = _fakeTime;
     }
 
     void Update()
     {
-        fakeCurrentTime -= Time.deltaTime;
+        _fakeCurrentTime -= Time.deltaTime;
 
-        foreground.fillAmount = 1 - fakeCurrentTime / fakeTime;
-        if (fakeCurrentTime < 0)
+        _foreground.fillAmount = 1 - _fakeCurrentTime / _fakeTime;
+        if (_fakeCurrentTime < 0)
         {
             LevelManager.Instance.LoadMenu();
         }

@@ -5,5 +5,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Text Configuration")]
 public class TextConfiguration : ScriptableObject
 {
-    public string[] tutorial_step;
+    public string[] _tutorial_step;
 }

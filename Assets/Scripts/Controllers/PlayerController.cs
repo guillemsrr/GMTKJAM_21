@@ -5,19 +5,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {    
     [SerializeField]
-    private float speed = 100;
+    private float _speed = 100;
     [SerializeField]
-    private float moveLimiter = 0.7f;
+    private float _moveLimiter = 0.7f;
     [SerializeField]
-    private float maxSpeed = 10;
+    private float _maxSpeed = 10;
 
-    private Vector2 userInput;
+    private Vector2 _userInput;
 
-    private Rigidbody m_Rigidbody;
+    private Rigidbody _Rigidbody;
 
     void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();       
+        _Rigidbody = GetComponent<Rigidbody>();       
     }
 
     void FixedUpdate()
@@ -28,26 +28,26 @@ public class PlayerController : MonoBehaviour
 
     private void ReadInputs()
     {       
-        userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        _userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
     private void UpdatePlayer()
     {
-        Vector3 movement = new Vector3(userInput.x, 0, userInput.y);
+        Vector3 movement = new Vector3(_userInput.x, 0, _userInput.y);
 
         if (movement.x != 0 && movement.z != 0)
         {
-            movement *= moveLimiter;
+            movement *= _moveLimiter;
         }
 
-        AddForce(movement * speed * Time.deltaTime);
+        AddForce(movement * _speed * Time.deltaTime);
     }
 
     public void AddForce(Vector3 force)
     {
-        if (m_Rigidbody.velocity.magnitude < maxSpeed)
+        if (_Rigidbody.velocity.magnitude < _maxSpeed)
         {
-            m_Rigidbody.AddForce(force);
+            _Rigidbody.AddForce(force);
         }
     }
 }

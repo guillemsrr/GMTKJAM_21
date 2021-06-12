@@ -13,6 +13,8 @@ namespace LevelGenerator
 
         private List<SpaceBodyControllerBase> _spaceBodies = new List<SpaceBodyControllerBase>();
 
+        private TemplatePool<SpaceBodyControllerBase> _planetsPool;
+
         private const float VISION_RADIUS = 50f;
         private const float EXTRA_RADIUS = VISION_RADIUS + 10f;
         private const float MINIMUM_BODY_DISTANCE = 5f;
@@ -26,8 +28,13 @@ namespace LevelGenerator
         
         private void Awake()
         {
-            StartCoroutine(PoolCoroutine());
             _spaceBodyReferences.Initialize();
+
+            GameObject planet = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Planet).gameObject;
+            _planetsPool = new TemplatePool<SpaceBodyControllerBase>();
+            _planetsPool.Init(planet,transform, NUMBER_INITIAL_BODIES);
+
+            StartCoroutine(PoolCoroutine(_planetsPool));
         }
 
         private void Start()
@@ -37,15 +44,40 @@ namespace LevelGenerator
 
         private void InitialGeneration()
         {
+            
             for (int i = 0; i < NUMBER_INITIAL_BODIES; i++)
             {
-                CreateSpaceBody();
+                CreateSpaceBody(_planetsPool);
             }
-
+            
             _maxPlayerDistance = EXTRA_RADIUS;
             _minPlayerDistance = VISION_RADIUS;
         }
 
+        private IEnumerator PoolCoroutine(TemplatePool<SpaceBodyControllerBase> pool)
+        {
+            while (true)
+            {
+                yield return POOL_CHECK_WAIT;
+
+                int numberBodies = _spaceBodies.Count - 1;
+                for (int i = numberBodies; i >= 0; i--)
+                {
+                    if (_spaceBodies.Count < i) continue;
+
+                    float distance = (_spaceBodies[i].Position - _playerTransform.position).magnitude;
+
+                    if (distance < VISION_RADIUS) continue;
+                    if (distance > EXTRA_RADIUS)
+                    {
+                        DestroySpaceBody(pool, _spaceBodies[i]);
+                        CreateSpaceBody(pool);
+                    }
+                }
+            }
+        }
+
+        /*
         private IEnumerator PoolCoroutine()
         {
             while (true)
@@ -68,6 +100,7 @@ namespace LevelGenerator
                 }
             }
         }
+        
 
         private void DestroySpaceBody(SpaceBodyControllerBase spaceBody)
         {
@@ -81,6 +114,21 @@ namespace LevelGenerator
             SpaceBodyControllerBase spaceBodyModel = GetRandomSpaceBody();
             SpaceBodyControllerBase spaceBody =
                 Instantiate(spaceBodyModel, randomPosition, Quaternion.identity, transform);
+            _spaceBodies.Add(spaceBody);
+        }
+        */
+        private void DestroySpaceBody(TemplatePool<SpaceBodyControllerBase> objectsPool, SpaceBodyControllerBase spaceBody)
+        {
+            _spaceBodies.Remove(spaceBody);
+            objectsPool.ReturnToPool(spaceBody);
+        }
+
+
+        private void CreateSpaceBody(TemplatePool<SpaceBodyControllerBase> objectsPool)
+        {
+            Vector3 randomPosition = GetPosition();
+            SpaceBodyControllerBase spaceBodyModel = GetRandomSpaceBody();
+            SpaceBodyControllerBase spaceBody = objectsPool.Instantiate(randomPosition, Quaternion.identity);
             _spaceBodies.Add(spaceBody);
         }
 
@@ -151,6 +199,11 @@ namespace LevelGenerator
             }
 
             return false;
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("On destroy");    
         }
     }
 }
