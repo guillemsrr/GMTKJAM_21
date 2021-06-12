@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Utils;
@@ -17,52 +16,42 @@ namespace Controllers
         }
         
         [SerializeField] private MeshRenderer _meshRenderer;
-        [SerializeField] private Material _iceMaterial;
-        [SerializeField] private Material _magmaMaterial;
-        [SerializeField] private Material _ringsMaterial;
-        [SerializeField] private Material _waterMaterial;
-        [SerializeField] private Material _radioactiveMaterial;
+        [SerializeField] private MeshFilter _meshFilter;
 
-        [SerializeField] private AudioClip _iceAudio;
-        [SerializeField] private AudioClip _magmaAudio;
-        [SerializeField] private AudioClip _ringsAudio;
-        [SerializeField] private AudioClip _waterAudio;
-        [SerializeField] private AudioClip _radioActiveAudio;
-
-        private Dictionary<PlanetType, Material> _materialsByType;
-        private Dictionary<PlanetType, AudioClip> _soundsByType;
+        [Header("Visuals")]
+        [SerializeField] private PlanetVisual _icePlanetVisuals;
+        [SerializeField] private PlanetVisual _magmaPlanetVisuals;
+        [SerializeField] private PlanetVisual _ringsPlanetVisuals;
+        [SerializeField] private PlanetVisual _waterPlanetVisuals;
+        [SerializeField] private PlanetVisual _radioActivePlanetVisuals;
+        
+        private Dictionary<PlanetType, PlanetVisual> _planetVisualsByType;
+        
 
         public override void Initialize()
         {
-            Material randomMaterial = GetRandomMaterial();
-            _meshRenderer.material = randomMaterial;
+            //ApplyRandomVisuals();
         }
 
-        private Material GetRandomMaterial()
+        private void ApplyRandomVisuals()
         {
             PlanetType planetType = RandomEnum.GetRandomFromEnum<PlanetType>();
+            PlanetVisual planetVisual = _planetVisualsByType[planetType];
 
-            return _materialsByType[planetType];
+            _meshRenderer.material = planetVisual.Material;
+            _meshFilter.mesh = planetVisual.Mesh;
+            _eatAudio = planetVisual.EatAudioClip;
         }
 
         private void Awake()
         {
-            _materialsByType = new Dictionary<PlanetType, Material>
+            _planetVisualsByType = new Dictionary<PlanetType, PlanetVisual>
             {
-                {PlanetType.Ice, _iceMaterial},
-                {PlanetType.Magma, _magmaMaterial},
-                {PlanetType.Rings, _ringsMaterial},
-                {PlanetType.Water, _waterMaterial},
-                {PlanetType.Radioactive, _radioactiveMaterial},
-            };
-
-            _soundsByType = new Dictionary<PlanetType, AudioClip>
-            {
-                {PlanetType.Ice, _iceAudio},
-                {PlanetType.Magma, _magmaAudio},
-                {PlanetType.Rings, _ringsAudio},
-                {PlanetType.Water, _waterAudio},
-                {PlanetType.Radioactive, _radioActiveAudio},
+                {PlanetType.Ice, _icePlanetVisuals},
+                {PlanetType.Magma, _magmaPlanetVisuals},
+                {PlanetType.Rings, _ringsPlanetVisuals},
+                {PlanetType.Water, _waterPlanetVisuals},
+                {PlanetType.Radioactive, _radioActivePlanetVisuals},
             };
         }
     }
