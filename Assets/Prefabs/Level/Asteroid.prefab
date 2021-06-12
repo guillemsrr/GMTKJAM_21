@@ -17,7 +17,7 @@ MonoBehaviour:
   _sphereCollider: {fileID: 9001675321014238068}
   _type: 1
   _eatAudio: {fileID: 0}
-  _playerDamage: 3
+  _playerDamage: 1
 --- !u!1001 &6563028026587071602
 PrefabInstance:
   m_ObjectHideFlags: 0

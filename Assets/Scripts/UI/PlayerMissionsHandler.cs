@@ -7,8 +7,7 @@ namespace Controllers
 {
     public class PlayerMissionsHandler: MonoBehaviour
     {
-        private const int BASE_NUMBER_MISSIONS = 1;
-
+        private const int MAX_MISSIONS = 8;
         [SerializeField] private Transform _missionContainer;
         [SerializeField] private MissionHandler _missionModel;
 
@@ -16,16 +15,22 @@ namespace Controllers
             new List<SpaceBodyControllerBase.SpaceBodyType>();
 
         private List<MissionHandler> _missions = new List<MissionHandler>();
-        
+
+        private int _currentNumberMissions;
         private int _numberMissionAccomplished;
         public bool AreAllMissionsAccomplished => _numberMissionAccomplished == _missions.Count;
         
-        public void CreateMissions(int numberMissions)
+        public void CreateMissions()
         {
             Reset();
             _numberMissionAccomplished = 0;
-            numberMissions += BASE_NUMBER_MISSIONS;
-            for (int i = 0; i < numberMissions; i++)
+            _currentNumberMissions++;
+            if (_currentNumberMissions > MAX_MISSIONS)
+            {
+                _currentNumberMissions = MAX_MISSIONS;
+            }
+            
+            for (int i = 0; i < _currentNumberMissions; i++)
             {
                 SpaceBodyControllerBase.SpaceBodyType type =
                     RandomEnum.GetRandomFromEnum<SpaceBodyControllerBase.SpaceBodyType>();
@@ -60,7 +65,7 @@ namespace Controllers
 
         private void Start()
         {
-            CreateMissions(0);
+            CreateMissions();
         }
     }
 }
