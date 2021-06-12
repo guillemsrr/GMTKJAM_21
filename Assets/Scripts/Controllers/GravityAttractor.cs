@@ -31,7 +31,7 @@ public class GravityAttractor : MonoBehaviour
         trigger.transform.localScale *= m_sphereCollider.radius*2;
         trigger.SetActive(false);
 
-        CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
+        //CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
     }
     public void HandlerIsDebug(object sender, EventArgs e)
     {

@@ -10,7 +10,6 @@ namespace Controllers
         {
             Planet,
             Asteroid,
-            Comet,
             Star,
             BlackHole
         }
@@ -18,11 +17,12 @@ namespace Controllers
         [SerializeField] private Transform _transform;
         [SerializeField] private GravityAttractor _gravityAttractor;
         [SerializeField] private SphereCollider _sphereCollider;
+        [SerializeField] private SpaceBodyType _type;
 
         private float _gravityForce;
         
         public Vector3 Position => _transform.position;
-        
+        public SpaceBodyType Type => _type;
 
         public void SetGravityForce(float force)
         {
