@@ -18,7 +18,7 @@ namespace Controllers
         public delegate void Dead();
         public event Dead DeadEvent;
 
-        private const int FULL_LIFE = 100;
+        private const int FULL_LIFE = 9;
         
         private readonly WaitForSeconds _immuneWaitForSeconds = new WaitForSeconds(5f);
 
@@ -30,10 +30,11 @@ namespace Controllers
         private bool _isImmune;
         private Queue<SpaceBodyControllerBase> _eatenSpaceBodies = new Queue<SpaceBodyControllerBase>();
 
+        private bool IsDead => _life <= 0;
+
         private void Awake()
         {
             DamagedEvent += TakeDamage;
-            LevelUpedEvent += LevelUp;
         }
 
         private void TakeDamage(float damageAmount)
@@ -41,15 +42,21 @@ namespace Controllers
             if (_isImmune) return;
             
             _life -= damageAmount;
-            if (_life <= 0)
+            Debug.LogError("_life: " + _life);
+            
+            if (IsDead)
             {
+                _playerController.enabled = false;
                 _playerVisualsHandler.DeathVisuals();
                 DeadEvent?.Invoke();
+                Debug.LogError("DEAD");
             }
         }
 
-        private void LevelUp()
+        public void LevelUp()
         {
+            LevelUpedEvent?.Invoke();
+            
             _life = FULL_LIFE;
             Level++;
             
@@ -73,8 +80,9 @@ namespace Controllers
             _playerController.Boost();
         }
         
-        public void EatIncorrectPlanet()
+        public void EatIncorrectPlanet(SpaceBodyControllerBase eatenBody)
         {
+            DamagedEvent?.Invoke(eatenBody.PlayerDamage);
         }
 
         private IEnumerator ImmunityTimer()
@@ -86,6 +94,8 @@ namespace Controllers
         
         private void OnTriggerEnter(Collider other)
         {
+            if (IsDead) return;
+            
             if (other.tag.Equals("SpaceBody"))
             {
                 EatPlanet(other.GetComponent<SpaceBodyControllerBase>());
