@@ -365,8 +365,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eb326c4480fd8149b7f306510136c52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 693971899}
-  textUI: {fileID: 2130766367}
+  _animator: {fileID: 693971899}
+  _textUI: {fileID: 2130766367}
 --- !u!95 &693971899
 Animator:
   serializedVersion: 3
@@ -572,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000009536743
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.y
@@ -649,8 +649,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e912a4949c23501409dce56088834a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogeCanvas: {fileID: 693971898}
-  textConfiguration: {fileID: 11400000, guid: e0082052087bd17439f5a5e62dd2a15d, type: 2}
+  _dialogeCanvas: {fileID: 693971898}
+  _textConfiguration: {fileID: 11400000, guid: e0082052087bd17439f5a5e62dd2a15d, type: 2}
 --- !u!4 &1814095883
 Transform:
   m_ObjectHideFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 179677720}
   _spaceBodyReferences: {fileID: 11400000, guid: 07765ac2ff89c3b4c869d0db5fb4534c, type: 2}
+  _spaceBodies: []
 --- !u!1 &2130766365
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,6 +840,10 @@ PrefabInstance:
     - target: {fileID: 784972198001258038, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 784972198001258039, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+      propertyPath: _speed
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 784972198001258041, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
       propertyPath: m_Name
