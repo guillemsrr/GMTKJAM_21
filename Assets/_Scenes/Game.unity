@@ -275,7 +275,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662761758}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662761758}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
@@ -708,22 +708,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_ChildControlWidth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_ChildForceExpandWidth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_ChildForceExpandHeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 871193209184913852, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1917391610345770777, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
       propertyPath: _playerStateHandler
       value: 
@@ -817,8 +801,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1917391610345770782, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
@@ -916,7 +900,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddf59d6ce14c284e80b639703590e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioMixerGroup: {fileID: 5480765709885317204, guid: f8d9865301a10164a8ae7fbe04daaf95, type: 2}
+  _audioMixerGroupMaster: {fileID: 24100000, guid: f8d9865301a10164a8ae7fbe04daaf95, type: 2}
+  _audioMixerGroupSFX: {fileID: 5480765709885317204, guid: f8d9865301a10164a8ae7fbe04daaf95, type: 2}
   _audioSources:
   - {fileID: 0}
   - {fileID: 0}
