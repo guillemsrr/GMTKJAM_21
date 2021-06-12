@@ -11,6 +11,11 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private SphereCollider m_sphereCollider;
 
+    public void SetGravity(float force)
+    {
+        gravity = force;
+    }
+    
     public void Attract(Transform body)
     {
         Attract(body, gravity, false, false);
