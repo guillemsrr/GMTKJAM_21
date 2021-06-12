@@ -35,21 +35,8 @@ namespace Controllers
         public void Destroy()
         {
             Destroy(gameObject);
-        }
-
-        public void BeEaten(Transform transform)
-        {
-            SetGravityForce(0);
-            StartCoroutine(Follow(transform));
-        }
-
-        private IEnumerator Follow(Transform transform)
-        {
-            while (true)
-            {
-                //_gravityAttractor.BeAttracted(transform);
-                yield return null;
-            }
+            
+            //instantiate destroy visual
         }
     }
 }
