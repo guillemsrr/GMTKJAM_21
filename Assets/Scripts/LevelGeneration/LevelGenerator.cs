@@ -16,18 +16,20 @@ namespace LevelGenerator
         private const float VISION_RADIUS = 50f;
         private const float EXTRA_RADIUS = VISION_RADIUS + 10f;
         private const float MINIMUM_BODY_DISTANCE = 5f;
-        private const int NUMBER_INITIAL_BODIES = 50;
+        private const int NUMBER_BODIES = 50;
 
         private readonly WaitForSeconds POOL_CHECK_WAIT = new WaitForSeconds(0.5f);
 
         private float _minPlayerDistance = 5f;
         private float _maxPlayerDistance = VISION_RADIUS;
+        private SpaceBodyRandomizer _spaceBodyRandomizer;
         
         
         private void Awake()
         {
             StartCoroutine(PoolCoroutine());
             _spaceBodyReferences.Initialize();
+            _spaceBodyRandomizer = new SpaceBodyRandomizer(_spaceBodyReferences, NUMBER_BODIES);
         }
 
         private void Start()
@@ -37,7 +39,7 @@ namespace LevelGenerator
 
         private void InitialGeneration()
         {
-            for (int i = 0; i < NUMBER_INITIAL_BODIES; i++)
+            for (int i = 0; i < NUMBER_BODIES; i++)
             {
                 CreateSpaceBody();
             }
@@ -71,6 +73,7 @@ namespace LevelGenerator
 
         private void DestroySpaceBody(SpaceBodyControllerBase spaceBody)
         {
+            _spaceBodyRandomizer.Remove(spaceBody.Type);
             _spaceBodies.Remove(spaceBody);
             spaceBody.Destroy();
         }
@@ -78,7 +81,7 @@ namespace LevelGenerator
         private void CreateSpaceBody()
         {
             Vector3 randomPosition = GetPosition();
-            SpaceBodyControllerBase spaceBodyModel = GetRandomSpaceBody();
+            SpaceBodyControllerBase spaceBodyModel = _spaceBodyRandomizer.GetRandomSpaceBody();
             SpaceBodyControllerBase spaceBody =
                 Instantiate(spaceBodyModel, randomPosition, Quaternion.identity, transform);
             _spaceBodies.Add(spaceBody);
@@ -126,17 +129,6 @@ namespace LevelGenerator
             while (playerDistance > _maxPlayerDistance || playerDistance < _minPlayerDistance);
 
             return randomPosition;
-        }
-
-        private SpaceBodyControllerBase GetRandomSpaceBody()
-        {
-            int randomNumber = Random.Range(0, 100);
-            if (randomNumber < 100)
-            {
-                return _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Planet);
-            }
-
-            return null;
         }
 
         private bool IsBelowMinimumBodyDistance(Vector3 bodyPosition)
