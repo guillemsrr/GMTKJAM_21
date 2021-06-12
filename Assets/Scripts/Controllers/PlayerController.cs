@@ -50,4 +50,14 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.AddForce(force);
         }
     }
+
+    public void SetHigherBaseSpeed()
+    {
+        
+    }
+
+    public void Boost()
+    {
+        
+    }
 }
