@@ -146,6 +146,7 @@ namespace LevelGenerator
         {
             Vector3 randomPosition = GetPosition();            
             SpaceBodyControllerBase spaceBody = objectsPool.Instantiate(randomPosition, Quaternion.identity);
+            spaceBody.Initialize();
             _spaceBodies.Add(spaceBody);
         }
 

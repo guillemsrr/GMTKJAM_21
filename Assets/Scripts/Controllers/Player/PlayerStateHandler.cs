@@ -65,6 +65,7 @@ namespace Controllers
             eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);
             _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);
+            eatenBody.TriggerEatAudio();
         }
 
         public void EatMissionPlanet()
