@@ -67,6 +67,17 @@ public class CoreManager : MonoBehaviour
         GetDialogeCanvas.DeactivateCanvasWithDelay(5f* _tutorial.Max_steps);
     }
 
+    public static void Quit()
+    {
+        // save any game data here
+#if UNITY_EDITOR
+
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
+    }
+
     private void OnDestroy()
     {
         OnIsDebug = null;
