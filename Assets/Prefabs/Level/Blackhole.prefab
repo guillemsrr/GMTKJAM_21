@@ -77,6 +77,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blackhole
       objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f811cc9ced7e62142b7161e69b55ae10, type: 2}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
 --- !u!1 &6773320156142632009 stripped

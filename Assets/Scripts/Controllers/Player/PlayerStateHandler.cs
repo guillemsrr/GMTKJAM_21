@@ -24,9 +24,12 @@ namespace Controllers
 
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PlayerVisualsHandler _playerVisualsHandler;
+        [SerializeField] private AudioClip _deadClip;
+        [SerializeField] private AudioClip _eatErrorClip;
 
         private float _life = FULL_LIFE;
         public int Level { get; private set; }
+
         private bool _isImmune;
         private Queue<SpaceBodyControllerBase> _eatenSpaceBodies = new Queue<SpaceBodyControllerBase>();
 
@@ -48,8 +51,13 @@ namespace Controllers
             {
                 _playerController.enabled = false;
                 _playerVisualsHandler.DeathVisuals();
+                AudioManager.Instance.Play(_deadClip);
                 DeadEvent?.Invoke();
                 Debug.LogError("DEAD");
+            }
+            else
+            {
+                AudioManager.Instance.Play(_eatErrorClip);
             }
         }
 
@@ -66,12 +74,12 @@ namespace Controllers
             _playerController.Boost();
         }
 
-        private void EatPlanet(SpaceBodyControllerBase eatenBody)
+        private void EatSpaceBody(SpaceBodyControllerBase eatenBody)
         {
             PlanetEatenEvent?.Invoke(eatenBody);
             eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);
-            _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);
+           _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);
             eatenBody.TriggerEatAudio();
         }
 
@@ -98,7 +106,7 @@ namespace Controllers
             
             if (other.tag.Equals("SpaceBody"))
             {
-                EatPlanet(other.GetComponent<SpaceBodyControllerBase>());
+                EatSpaceBody(other.GetComponent<SpaceBodyControllerBase>());
             }
         }
     }

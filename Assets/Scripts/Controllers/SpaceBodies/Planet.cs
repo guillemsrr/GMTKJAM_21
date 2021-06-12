@@ -30,7 +30,7 @@ namespace Controllers
 
         public override void Initialize()
         {
-            //ApplyRandomVisuals();
+            ApplyRandomVisuals();
         }
 
         private void ApplyRandomVisuals()
@@ -38,8 +38,8 @@ namespace Controllers
             PlanetType planetType = RandomEnum.GetRandomFromEnum<PlanetType>();
             PlanetVisual planetVisual = _planetVisualsByType[planetType];
 
-            _meshRenderer.material = planetVisual.Material;
-            _meshFilter.mesh = planetVisual.Mesh;
+            //_meshRenderer.material = planetVisual.Material;
+            //_meshFilter.mesh = planetVisual.Mesh;
             _eatAudio = planetVisual.EatAudioClip;
         }
 

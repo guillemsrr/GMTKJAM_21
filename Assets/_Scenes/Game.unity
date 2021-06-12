@@ -839,7 +839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
+      value: -0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.y
@@ -973,6 +973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogeCanvas: {fileID: 693971898}
   _textConfiguration: {fileID: 11400000, guid: e0082052087bd17439f5a5e62dd2a15d, type: 2}
+  _levelGenerator: {fileID: 1928254908}
 --- !u!4 &1814095883
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,7 +1009,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1928254907
 Transform:
   m_ObjectHideFlags: 0
@@ -1172,6 +1173,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1173291844530744516, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+      propertyPath: _deadClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a88f4324a95344f44ae04ae16c5f2cf6, type: 3}
+    - target: {fileID: 1173291844530744516, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+      propertyPath: _eatErrorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7f3f4376c06bacf41adf60c28c01d283, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
 --- !u!114 &784972197907760175 stripped

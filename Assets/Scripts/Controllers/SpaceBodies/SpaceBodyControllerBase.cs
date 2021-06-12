@@ -34,7 +34,8 @@ namespace Controllers
 
         public virtual void TriggerEatAudio()
         {
-            
+            if (_eatAudio == null) return;
+            AudioManager.Instance.Play(_eatAudio);
         }
 
         public void SetGravityForce(float force)
@@ -46,7 +47,7 @@ namespace Controllers
 
         public void Destroy()
         {
-            Destroy(gameObject);
+            CoreManager.Instance.GetLevelGenerator.DestroySpaceBody(_type, this);
             
             //instantiate destroy visual
         }

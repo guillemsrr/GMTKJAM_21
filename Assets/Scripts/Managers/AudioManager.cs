@@ -25,12 +25,14 @@ public class AudioManager : MonoBehaviour
 
     public void Play(AudioClip clip)
     {
+        if (clip == null) return;
         foreach (var audio in _audioSources)
         {
             if (!audio.isPlaying)
             {
                 audio.clip = clip;
                 audio.Play();
+                break;
             }          
         }
     }

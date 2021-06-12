@@ -147,6 +147,31 @@ namespace LevelGenerator
             objectsPool.ReturnToPool(spaceBody);
         }
 
+        public void DestroySpaceBody(SpaceBodyControllerBase.SpaceBodyType spaceBodyType, SpaceBodyControllerBase spaceBody)
+        {
+            switch (spaceBodyType)
+            {
+                case SpaceBodyControllerBase.SpaceBodyType.Planet:
+                    DestroySpaceBody(_planetsPool, spaceBody);
+                    CreateSpaceBody(_planetsPool);
+                    break;
+                case SpaceBodyControllerBase.SpaceBodyType.Star:
+                    DestroySpaceBody(_starsPool, spaceBody);
+                    CreateSpaceBody(_starsPool);
+                    break;
+                case SpaceBodyControllerBase.SpaceBodyType.Asteroid:
+                    DestroySpaceBody(_asteroidsPool, spaceBody);
+                    CreateSpaceBody(_asteroidsPool);
+                    break;
+                case SpaceBodyControllerBase.SpaceBodyType.BlackHole:
+                    DestroySpaceBody(_blackHolesPool, spaceBody);
+                    CreateSpaceBody(_blackHolesPool);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void CreateSpaceBody(TemplatePool<SpaceBodyControllerBase> objectsPool)
         {
             Vector3 randomPosition = GetPosition();            
