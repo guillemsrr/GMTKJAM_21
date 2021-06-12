@@ -38,7 +38,7 @@ namespace Controllers
             PlanetType planetType = RandomEnum.GetRandomFromEnum<PlanetType>();
             PlanetVisual planetVisual = _planetVisualsByType[planetType];
 
-            //_meshRenderer.material = planetVisual.Material;
+            _meshRenderer.material = planetVisual.Material;
             //_meshFilter.mesh = planetVisual.Mesh;
             _eatAudio = planetVisual.EatAudioClip;
         }

@@ -19,16 +19,19 @@ namespace LevelGenerator
         private TemplatePool<SpaceBodyControllerBase> _starsPool;
         private TemplatePool<SpaceBodyControllerBase> _blackHolesPool;
         private TemplatePool<SpaceBodyControllerBase> _asteroidsPool;
+        private TemplatePool<SpaceBodyControllerBase> _commetsPool;
 
         private const float VISION_RADIUS = 50f;
         private const float EXTRA_RADIUS = VISION_RADIUS + 10f;
         private const float MINIMUM_BODY_DISTANCE = 5f;
-        private const int NUMBER_BODIES = 50;
+        private const int NUMBER_BODIES = 70;
 
+        private const int NUMBER_ASTEROIDS = 30;
+        private const int NUMBER_COMMETS = 10;
         private const int NUMBER_PLANETS = 15;
         private const int NUMBER_STARS = 10;
-        private const int NUMBER_ASTEROIDS = 30;
         private const int NUMBER_BLACKHOLES = 5;
+   
 
         private readonly WaitForSeconds POOL_CHECK_WAIT = new WaitForSeconds(0.5f);
 
@@ -43,17 +46,21 @@ namespace LevelGenerator
             _spaceBodyRandomizer = new SpaceBodyRandomizer(_spaceBodyReferences, NUMBER_BODIES);
 
 
+            GameObject asteroid = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Asteroid).gameObject;
+            _asteroidsPool = new TemplatePool<SpaceBodyControllerBase>();
+            _asteroidsPool.Init(asteroid, transform, NUMBER_ASTEROIDS);
+
+            GameObject commet = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Commet).gameObject;
+            _commetsPool = new TemplatePool<SpaceBodyControllerBase>();
+            _commetsPool.Init(commet, transform, NUMBER_COMMETS);
+
             GameObject planet = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Planet).gameObject;
             _planetsPool = new TemplatePool<SpaceBodyControllerBase>();
-            _planetsPool.Init(planet,transform, NUMBER_PLANETS);
+            _planetsPool.Init(planet, transform, NUMBER_PLANETS);
 
             GameObject star = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Star).gameObject;
             _starsPool = new TemplatePool<SpaceBodyControllerBase>();
             _starsPool.Init(star, transform, NUMBER_STARS);
-
-            GameObject asteroid = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.Asteroid).gameObject;
-            _asteroidsPool = new TemplatePool<SpaceBodyControllerBase>();
-            _asteroidsPool.Init(asteroid, transform, NUMBER_ASTEROIDS);
 
             GameObject blackhole = _spaceBodyReferences.GetSpaceBody(SpaceBodyControllerBase.SpaceBodyType.BlackHole).gameObject;
             _blackHolesPool = new TemplatePool<SpaceBodyControllerBase>();
@@ -87,6 +94,10 @@ namespace LevelGenerator
             for (int i = 0; i < NUMBER_ASTEROIDS; i++)
             {
                 CreateSpaceBody(_asteroidsPool);
+            }
+            for (int i = 0; i < NUMBER_COMMETS; i++)
+            {
+                CreateSpaceBody(_commetsPool);
             }
 
             _maxPlayerDistance = EXTRA_RADIUS;
@@ -128,6 +139,10 @@ namespace LevelGenerator
                                 DestroySpaceBody(_asteroidsPool, _spaceBodies[i]);
                                 CreateSpaceBody(_asteroidsPool);
                                 break;
+                            case SpaceBodyControllerBase.SpaceBodyType.Commet:
+                                DestroySpaceBody(_commetsPool, _spaceBodies[i]);
+                                CreateSpaceBody(_commetsPool);
+                                break;
                             case SpaceBodyControllerBase.SpaceBodyType.BlackHole:
                                 DestroySpaceBody(_blackHolesPool, _spaceBodies[i]);
                                 CreateSpaceBody(_blackHolesPool);
@@ -162,6 +177,10 @@ namespace LevelGenerator
                 case SpaceBodyControllerBase.SpaceBodyType.Asteroid:
                     DestroySpaceBody(_asteroidsPool, spaceBody);
                     CreateSpaceBody(_asteroidsPool);
+                    break;
+                case SpaceBodyControllerBase.SpaceBodyType.Commet:
+                    DestroySpaceBody(_commetsPool, spaceBody);
+                    CreateSpaceBody(_commetsPool);
                     break;
                 case SpaceBodyControllerBase.SpaceBodyType.BlackHole:
                     DestroySpaceBody(_blackHolesPool, spaceBody);

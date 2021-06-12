@@ -12,8 +12,8 @@ namespace Controllers
         public delegate void LevelUped();
         public event LevelUped LevelUpedEvent;
 
-        public delegate void PlanetEaten(SpaceBodyControllerBase eatenBody);
-        public event PlanetEaten PlanetEatenEvent;
+        public delegate void BodyEaten(SpaceBodyControllerBase eatenBody);
+        public event BodyEaten BodyEatenEvent;
         
         public delegate void Dead();
         public event Dead DeadEvent;
@@ -76,7 +76,7 @@ namespace Controllers
 
         private void EatSpaceBody(SpaceBodyControllerBase eatenBody)
         {
-            PlanetEatenEvent?.Invoke(eatenBody);
+            BodyEatenEvent?.Invoke(eatenBody);
             eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);
            _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);

@@ -15,7 +15,7 @@ MonoBehaviour:
   _transform: {fileID: 6773320156142632010}
   _gravityAttractor: {fileID: 6773320157577529864}
   _sphereCollider: {fileID: 6773320157577529973}
-  _type: 3
+  _type: 4
   _eatAudio: {fileID: 0}
   _playerDamage: 10
 --- !u!1001 &8793073757870962035

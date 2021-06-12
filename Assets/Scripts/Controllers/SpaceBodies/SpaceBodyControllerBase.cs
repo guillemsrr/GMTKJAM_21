@@ -10,6 +10,7 @@ namespace Controllers
         {
             Planet,
             Asteroid,
+            Commet,
             Star,
             BlackHole
         }

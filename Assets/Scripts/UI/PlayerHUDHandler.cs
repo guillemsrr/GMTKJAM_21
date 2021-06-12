@@ -15,7 +15,7 @@ namespace UI
             if (!_playerStateHandler) return;
 
             _playerStateHandler.DeadEvent += ApplyGameOver;
-            _playerStateHandler.PlanetEatenEvent += EatPlanet;
+            _playerStateHandler.BodyEatenEvent += EatPlanet;
         }
 
         private void DamageBars(float damage)
