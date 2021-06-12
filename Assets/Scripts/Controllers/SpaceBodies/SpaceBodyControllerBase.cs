@@ -19,7 +19,7 @@ namespace Controllers
         [SerializeField] private SphereCollider _sphereCollider;
         [SerializeField] private SpaceBodyType _type;
         [SerializeField] protected AudioClip _eatAudio;
-        [SerializeField] private int _playerDamage = 3;
+        [SerializeField] private int _playerDamage = 1;
 
         private float _gravityForce;
         

@@ -6,7 +6,7 @@ namespace Controllers
 {
     public class PlayerStateHandler: MonoBehaviour
     {
-        public delegate void Damaged(float damageAmount);
+        public delegate void Damaged(int damageAmount);
         public event Damaged DamagedEvent;
         
         public delegate void LevelUped();
@@ -18,7 +18,7 @@ namespace Controllers
         public delegate void Dead();
         public event Dead DeadEvent;
 
-        private const int FULL_LIFE = 9;
+        private const int FULL_LIFE = 3;
         
         private readonly WaitForSeconds _immuneWaitForSeconds = new WaitForSeconds(5f);
 
@@ -27,25 +27,25 @@ namespace Controllers
         [SerializeField] private AudioClip _deadClip;
         [SerializeField] private AudioClip _eatErrorClip;
 
-        private float _life = FULL_LIFE;
+        private int _life = FULL_LIFE;
         public int Level { get; private set; }
 
         private bool _isImmune;
         private Queue<SpaceBodyControllerBase> _eatenSpaceBodies = new Queue<SpaceBodyControllerBase>();
 
         private bool IsDead => _life <= 0;
+        public int Life => _life;
 
         private void Awake()
         {
             DamagedEvent += TakeDamage;
         }
 
-        private void TakeDamage(float damageAmount)
+        private void TakeDamage(int damageAmount)
         {
             if (_isImmune) return;
             
             _life -= damageAmount;
-            Debug.LogError("_life: " + _life);
             
             if (IsDead)
             {
@@ -53,7 +53,6 @@ namespace Controllers
                 _playerVisualsHandler.DeathVisuals();
                 AudioManager.Instance.Play(_deadClip);
                 DeadEvent?.Invoke();
-                Debug.LogError("DEAD");
             }
             else
             {
