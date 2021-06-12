@@ -708,6 +708,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_ChildControlWidth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_ChildForceExpandWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890309873, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_ChildForceExpandHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 871193209184913852, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917391610345770777, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: _playerStateHandler
+      value: 
+      objectReference: {fileID: 784972197907760175}
     - target: {fileID: 1917391610345770778, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -796,6 +816,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1917391610345770782, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
 --- !u!1001 &1320318080
@@ -823,7 +847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.6454514
+      value: 1.7320546
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1150,3 +1174,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+--- !u!114 &784972197907760175 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1173291844530744516, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+  m_PrefabInstance: {fileID: 784972197907760174}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c6feb9867a43c0a5b760cdeea614bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
