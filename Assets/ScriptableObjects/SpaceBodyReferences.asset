@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3773c190d1e42d69796b756ae0c1b5a, type: 3}
   m_Name: SpaceBodyReferences
   m_EditorClassIdentifier: 
-  _planet: {fileID: 5930667836622060436, guid: 2bbd6d26ec1457f4b88e9e5df76560d9, type: 3}
-  _asteroid: {fileID: 0}
+  _planet: {fileID: 806416262, guid: 95ad4b80bd99f6440b4a248e084f925c, type: 3}
+  _asteroid: {fileID: 5383840981648653937, guid: a2e06540c61f560468ad23f267df1482, type: 3}
+  _blackhole: {fileID: 6443346329176764138, guid: d8a653de34f9f8f4fa682ffd107cc370, type: 3}
+  _star: {fileID: 7394742922700490695, guid: a30c7d9188d22394193648c700ee50a6, type: 3}

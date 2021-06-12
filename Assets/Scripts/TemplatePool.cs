@@ -33,6 +33,7 @@ public class TemplatePool<T> where T : MonoBehaviour
 
     public T Instantiate(Vector3 position, Quaternion rotation)
     {
+        if (_poolList.Count == 0) return null;
         T template = _poolList[0];
         ((Component)template).transform.position = position;
         template.transform.rotation = rotation;
@@ -47,5 +48,14 @@ public class TemplatePool<T> where T : MonoBehaviour
         template.gameObject.SetActive(false);
         template.transform.position = _target.position;
         _poolList.Add(template.GetComponent<T>());
+    }
+
+    public void DestroyAll()
+    {
+        foreach(T t in _poolList)
+        {
+            GameObject.DestroyImmediate(t);
+        }
+        
     }
 }

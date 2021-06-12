@@ -126,11 +126,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963b28d6b15f4aa4fafc879173ee0556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -2
-  mass: 0
-  m_sphereCollider: {fileID: 2880314973887921926}
-  dontAffectForce: 0
-  triggerMat: {fileID: 2100000, guid: 6a0b4e7bc8ecfda4493178fd8fa3b300, type: 2}
+  _gravity: -10
+  _mass: 0
+  _sphereCollider: {fileID: 2880314973887921926}
+  _dontAffectForce: 0
+  _triggerMat: {fileID: 2100000, guid: 6a0b4e7bc8ecfda4493178fd8fa3b300, type: 2}
 --- !u!135 &2880314973887921926
 SphereCollider:
   m_ObjectHideFlags: 0

@@ -20,7 +20,7 @@ public class GravityAttractor : MonoBehaviour
     Transform _player;
     private GameObject _trigger;
 
-    
+    private CoreManager _coreManager;
 
     private void Start()
     {
@@ -31,7 +31,8 @@ public class GravityAttractor : MonoBehaviour
         _trigger.transform.localScale *= _sphereCollider.radius*2;
         _trigger.SetActive(false);
 
-        CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
+        _coreManager = CoreManager.Instance;
+        _coreManager.OnIsDebug += HandlerIsDebug;        
     }
     public void HandlerIsDebug(object sender, EventArgs e)
     {
@@ -91,7 +92,7 @@ public class GravityAttractor : MonoBehaviour
 
     private void OnDestroy()
     {
-        CoreManager.Instance.OnIsDebug -= HandlerIsDebug;
+        _coreManager.OnIsDebug -= HandlerIsDebug;
     }
 
 }

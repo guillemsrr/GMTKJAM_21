@@ -66,4 +66,9 @@ public class CoreManager : MonoBehaviour
 
         GetDialogeCanvas.DeactivateCanvasWithDelay(5f* _tutorial.Max_steps);
     }
+
+    private void OnDestroy()
+    {
+        OnIsDebug = null;
+    }
 }
