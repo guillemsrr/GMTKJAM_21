@@ -51,4 +51,14 @@ public class PlayerController : MonoBehaviour
             _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
         }
     }
+
+    public void SetHigherBaseSpeed()
+    {
+        
+    }
+
+    public void Boost()
+    {
+        
+    }
 }

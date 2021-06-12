@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Controllers
@@ -29,12 +30,26 @@ namespace Controllers
             _gravityForce = force;
             _gravityAttractor.SetGravity(force);
             _sphereCollider.radius = force * GRAVITY_RADIUS_RELATION;
-            _transform.localScale = Vector3.up * _gravityForce;
         }
 
         public void Destroy()
         {
             Destroy(gameObject);
+        }
+
+        public void BeEaten(Transform transform)
+        {
+            SetGravityForce(0);
+            StartCoroutine(Follow(transform));
+        }
+
+        private IEnumerator Follow(Transform transform)
+        {
+            while (true)
+            {
+                //_gravityAttractor.BeAttracted(transform);
+                yield return null;
+            }
         }
     }
 }
