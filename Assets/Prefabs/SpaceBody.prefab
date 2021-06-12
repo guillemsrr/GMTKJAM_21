@@ -130,6 +130,7 @@ MonoBehaviour:
   mass: 0
   m_sphereCollider: {fileID: 2880314973887921926}
   dontAffectForce: 0
+  triggerMat: {fileID: 2100000, guid: 6a0b4e7bc8ecfda4493178fd8fa3b300, type: 2}
 --- !u!135 &2880314973887921926
 SphereCollider:
   m_ObjectHideFlags: 0
