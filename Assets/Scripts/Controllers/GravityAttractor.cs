@@ -60,6 +60,11 @@ public class GravityAttractor : MonoBehaviour
         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 1);
     }
 
+    public void SetGravity(float force)
+    {
+        gravity = force;
+    }
+
     private void FixedUpdate()
     {
         if (!dontAffectForce)
