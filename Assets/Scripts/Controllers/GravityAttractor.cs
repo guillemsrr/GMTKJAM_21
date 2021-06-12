@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,29 @@ public class GravityAttractor : MonoBehaviour
 
     public bool dontAffectForce;
 
+    [SerializeField]
+    private Material triggerMat;
+
     Transform player;
+    private GameObject trigger;
+
+    
+
+    private void Start()
+    {
+        trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        trigger.transform.parent = transform;
+        trigger.GetComponent<Renderer>().material = triggerMat;
+        trigger.transform.position = transform.position;
+        trigger.transform.localScale *= m_sphereCollider.radius*2;
+        trigger.SetActive(false);
+
+        CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
+    }
+    public void HandlerIsDebug(object sender, EventArgs e)
+    {
+        trigger.SetActive(!trigger.active);
+    }
 
     public void Attract(Transform body)
     {
@@ -39,15 +62,8 @@ public class GravityAttractor : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         if (!dontAffectForce)
             Attract(player);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, m_sphereCollider.radius);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -58,6 +74,7 @@ public class GravityAttractor : MonoBehaviour
             player = other.transform;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.tag.Equals("Player"))
@@ -66,4 +83,10 @@ public class GravityAttractor : MonoBehaviour
             player = null;
         }
     }
+
+    private void OnDestroy()
+    {
+        CoreManager.Instance.OnIsDebug -= HandlerIsDebug;
+    }
+
 }
