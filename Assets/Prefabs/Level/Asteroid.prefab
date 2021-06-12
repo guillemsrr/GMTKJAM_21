@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &5383840981648653937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001675319644327240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bf56a3d7b14d4989c15c9cbc7c97de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transform: {fileID: 9001675321014238069}
+  _gravityAttractor: {fileID: 9001675321014237961}
+  _sphereCollider: {fileID: 9001675321014238068}
+  _type: 1
+--- !u!1001 &6563028026587071602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Name
+      value: Asteroid
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+--- !u!1 &9001675319644327240 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 6563028026587071602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9001675321014238069 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2880314973887921927, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 6563028026587071602}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9001675321014237961 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 6563028026587071602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 963b28d6b15f4aa4fafc879173ee0556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &9001675321014238068 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 2880314973887921926, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+  m_PrefabInstance: {fileID: 6563028026587071602}
+  m_PrefabAsset: {fileID: 0}

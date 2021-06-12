@@ -6,42 +6,43 @@ using UnityEngine;
 public class GravityAttractor : MonoBehaviour
 {
     [SerializeField]
-    private float gravity = -10f;
+    private float _gravity = -10f;
     [SerializeField]
-    private float mass;
+    private float _mass;
     [SerializeField]
-    private SphereCollider m_sphereCollider;
+    private SphereCollider _sphereCollider;
 
-    public bool dontAffectForce;
+    public bool _dontAffectForce;
 
     [SerializeField]
-    private Material triggerMat;
+    private Material _triggerMat;
 
-    Transform player;
-    private GameObject trigger;
+    Transform _player;
+    private GameObject _trigger;
 
-    
+    private CoreManager _coreManager;
 
     private void Start()
     {
-        trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        trigger.transform.parent = transform;
-        trigger.GetComponent<Renderer>().material = triggerMat;
-        trigger.transform.position = transform.position;
-        trigger.transform.localScale *= m_sphereCollider.radius*2;
-        trigger.SetActive(false);
+        _trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        _trigger.transform.parent = transform;
+        _trigger.GetComponent<Renderer>().material = _triggerMat;
+        _trigger.transform.position = transform.position;
+        _trigger.transform.localScale = new Vector3(_sphereCollider.radius*2,1, _sphereCollider.radius * 2);
+        _trigger.SetActive(false);
 
-        CoreManager.Instance.OnIsDebug += HandlerIsDebug;        
+        _coreManager = CoreManager.Instance;
+        _coreManager.OnIsDebug += HandlerIsDebug;        
     }
     public void HandlerIsDebug(object sender, EventArgs e)
     {
-        trigger.SetActive(!trigger.activeSelf);
+        _trigger.SetActive(!_trigger.activeSelf);
     }
 
     public void Attract(Transform body)
     {
-        if(player)
-            Attract(body, gravity, false, false);
+        if(_player)
+            Attract(body, _gravity, false, false);
     }
 
     public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot)
@@ -62,21 +63,21 @@ public class GravityAttractor : MonoBehaviour
 
     public void SetGravity(float force)
     {
-        gravity = force;
+        _gravity = force;
     }
 
     private void FixedUpdate()
     {
-        if (!dontAffectForce)
-            Attract(player);
+        if (!_dontAffectForce)
+            Attract(_player);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag.Equals("Player"))
         {
-            dontAffectForce = false;
-            player = other.transform;
+            _dontAffectForce = false;
+            _player = other.transform;
         }
     }
 
@@ -84,14 +85,14 @@ public class GravityAttractor : MonoBehaviour
     {
         if (other.tag.Equals("Player"))
         {
-            dontAffectForce = true;
-            player = null;
+            _dontAffectForce = true;
+            _player = null;
         }
     }
 
     private void OnDestroy()
     {
-        CoreManager.Instance.OnIsDebug -= HandlerIsDebug;
+        _coreManager.OnIsDebug -= HandlerIsDebug;
     }
 
 }

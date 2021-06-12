@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager
 {
-    private static LevelManager m_intance = null;
+    private static LevelManager _intance = null;
 
     public static LevelManager Instance
     {
         get
         {
-            if (m_intance == null)
+            if (_intance == null)
             {
-                m_intance = new LevelManager();
+                _intance = new LevelManager();
                 
             }
-            return m_intance;
+            return _intance;
         }
     }
 
