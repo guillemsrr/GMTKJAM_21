@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,13 +19,14 @@ namespace Controllers
         public event Dead DeadEvent;
 
         private const int FULL_LIFE = 100;
+        
         private readonly WaitForSeconds _immuneWaitForSeconds = new WaitForSeconds(5f);
 
         [SerializeField] private PlayerController _playerController;
         [SerializeField] private PlayerVisualsHandler _playerVisualsHandler;
 
         private float _life = FULL_LIFE;
-        private int _level;
+        public int Level { get; private set; }
         private bool _isImmune;
         private Queue<SpaceBodyControllerBase> _eatenSpaceBodies = new Queue<SpaceBodyControllerBase>();
 
@@ -34,7 +34,6 @@ namespace Controllers
         {
             DamagedEvent += TakeDamage;
             LevelUpedEvent += LevelUp;
-            PlanetEatenEvent += EatPlanet;
         }
 
         private void TakeDamage(float damageAmount)
@@ -52,20 +51,29 @@ namespace Controllers
         private void LevelUp()
         {
             _life = FULL_LIFE;
-            _level++;
+            Level++;
             
             StartCoroutine(ImmunityTimer());
-            _playerVisualsHandler.ChangeVisualFromLevelUp(_level);
+            _playerVisualsHandler.ChangeVisualFromLevelUp(Level);
             _playerController.SetHigherBaseSpeed();
             _playerController.Boost();
         }
 
         private void EatPlanet(SpaceBodyControllerBase eatenBody)
         {
-            eatenBody.BeEaten(transform);
+            PlanetEatenEvent?.Invoke(eatenBody);
+            eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);
             _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);
+        }
+
+        public void EatMissionPlanet()
+        {
             _playerController.Boost();
+        }
+        
+        public void EatIncorrectPlanet()
+        {
         }
 
         private IEnumerator ImmunityTimer()
@@ -73,6 +81,14 @@ namespace Controllers
             _isImmune = true;
             yield return _immuneWaitForSeconds;
             _isImmune = false;
+        }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.tag.Equals("SpaceBody"))
+            {
+                EatPlanet(other.GetComponent<SpaceBodyControllerBase>());
+            }
         }
     }
 }
