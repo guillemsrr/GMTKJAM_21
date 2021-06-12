@@ -6,8 +6,8 @@ namespace UI
     public class PlayerHUDHandler: MonoBehaviour
     {
         [SerializeField] private PlayerStateHandler _playerStateHandler;
-
-        private PlayerMissionsHandler _missionsHandler;
+        [SerializeField] private PlayerMissionsHandler _missionsHandler;
+        [SerializeField] private LifeController _lifeController;
 
         private void Awake()
         {

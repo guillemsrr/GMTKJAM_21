@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using UnityEngine;
 using Utils;
 
 namespace Controllers
 {
-    public class PlayerMissionsHandler
+    public class PlayerMissionsHandler: MonoBehaviour
     {
         private List<SpaceBodyControllerBase.SpaceBodyType> _missionTypes;
         
