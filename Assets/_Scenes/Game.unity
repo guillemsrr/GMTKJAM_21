@@ -263,15 +263,15 @@ GameObject:
   - component: {fileID: 693971896}
   - component: {fileID: 693971895}
   - component: {fileID: 693971894}
-  - component: {fileID: 693971898}
   - component: {fileID: 693971899}
+  - component: {fileID: 693971898}
   m_Layer: 5
   m_Name: DialogCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &693971894
 MonoBehaviour:
   m_ObjectHideFlags: 0
