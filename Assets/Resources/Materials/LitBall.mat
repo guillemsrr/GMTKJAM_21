@@ -134,7 +134,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_93a01b22fa904af8a857ea5229b705bf: {r: 0.9056604, g: 0.48335326, b: 0, a: 1}
+    - Color_93a01b22fa904af8a857ea5229b705bf: {r: 0, g: 0, b: 0, a: 0.3529412}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 0.8182721, b: 0.13679242, a: 1}

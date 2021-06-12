@@ -145,7 +145,7 @@ Material:
     m_Colors:
     - Color_dc1dcf1227614de6a3fa0816f2616aa4: {r: 3.031433, g: 1.8069719, b: 0.20209555, a: 1}
     - Vector2_166e9219119d401a9d30989631910a4a: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 1, g: 0.6728325, b: 0, a: 1}
+    - _BaseColor: {r: 1, g: 0.6728325, b: 0, a: 0.043137256}
     - _BaseColorAddSubDiff: {r: 1, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
