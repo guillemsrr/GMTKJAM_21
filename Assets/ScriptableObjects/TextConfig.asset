@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571728a5d85826b41bc3b07c7faffbd0, type: 3}
   m_Name: TextConfig
   m_EditorClassIdentifier: 
-  tutorial_step:
+  _tutorial_step:
   - Press <color=blue><b> W,S,A,D</b></color> for <b>Move</b>
-  - Bla bla bla
+  - Bla Bla Bla

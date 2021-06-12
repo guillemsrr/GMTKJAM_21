@@ -13,11 +13,11 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _userInput;
 
-    private Rigidbody _Rigidbody;
+    private Rigidbody _rigidbody;
 
     void Start()
     {
-        _Rigidbody = GetComponent<Rigidbody>();       
+        _rigidbody = GetComponent<Rigidbody>();       
     }
 
     void FixedUpdate()
@@ -45,9 +45,10 @@ public class PlayerController : MonoBehaviour
 
     public void AddForce(Vector3 force)
     {
-        if (_Rigidbody.velocity.magnitude < _maxSpeed)
+        _rigidbody.AddForce(force);
+        if (_rigidbody.velocity.magnitude > _maxSpeed)
         {
-            _Rigidbody.AddForce(force);
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
         }
     }
 
