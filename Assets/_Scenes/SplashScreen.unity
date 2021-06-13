@@ -604,8 +604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0204165350b8184695e2162be166ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foreground: {fileID: 1583721624}
-  fakeTime: 1
+  _foreground: {fileID: 1583721624}
+  _fakeTime: 1
 --- !u!1 &2101769120
 GameObject:
   m_ObjectHideFlags: 0

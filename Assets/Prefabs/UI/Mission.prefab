@@ -66,9 +66,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 31a5bf11a639925489ffd8ca3c6a08a2, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -98,6 +98,15 @@ MonoBehaviour:
   _magmaLogo:
     _unaquired: {fileID: 21300000, guid: a1ccedd9333f06e44b85afbf620e8792, type: 3}
     _aquired: {fileID: 21300000, guid: 42ef316bf450d0049b13ecd7adef6c6d, type: 3}
-  _Logo:
-    _unaquired: {fileID: 0}
-    _aquired: {fileID: 0}
+  _iceLogo:
+    _unaquired: {fileID: 21300000, guid: 17bcf7e02f423e84b8c8d2b598f0003f, type: 3}
+    _aquired: {fileID: 21300000, guid: 87d94f27bb7145c429bd2a35da59a4ac, type: 3}
+  _radioActiveLogo:
+    _unaquired: {fileID: 21300000, guid: 6594f0f2fa49fb24ea6de30a400e9611, type: 3}
+    _aquired: {fileID: 21300000, guid: 84f1d3e8794409749913f6ec70507ab2, type: 3}
+  _waterLogo:
+    _unaquired: {fileID: 21300000, guid: 4440b41fcd872d043a5ef09ab642c570, type: 3}
+    _aquired: {fileID: 21300000, guid: 3f98bf359888d3e49b7bccce421ca5e5, type: 3}
+  _tierraLogo:
+    _unaquired: {fileID: 21300000, guid: 31a5bf11a639925489ffd8ca3c6a08a2, type: 3}
+    _aquired: {fileID: 21300000, guid: 6061d85fc1a92b14aa32c22c232f7a80, type: 3}

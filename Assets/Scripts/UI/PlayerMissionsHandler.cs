@@ -12,12 +12,9 @@ namespace Controllers
         [SerializeField] private Transform _missionContainer;
         [SerializeField] private MissionHandler _missionModel;
 
-        private List<SpaceBodyControllerBase.SpaceBodyType> _missionTypes =
-            new List<SpaceBodyControllerBase.SpaceBodyType>();
-
         private List<MissionHandler> _missions = new List<MissionHandler>();
 
-        private int _currentNumberMissions;
+        private int _currentNumberMissions = 1;
         private int _numberMissionAccomplished;
         public bool AreAllMissionsAccomplished => _numberMissionAccomplished == _missions.Count;
         
@@ -33,24 +30,50 @@ namespace Controllers
             
             for (int i = 0; i < _currentNumberMissions; i++)
             {
-                SpaceBodyControllerBase.SpaceBodyType type =
-                    RandomEnum.GetRandomFromEnum<SpaceBodyControllerBase.SpaceBodyType>();
-                _missionTypes.Add(type);
+                SpaceBodyControllerBase.SpaceBodyType type = GetRandomType();
                 MissionHandler mission = Instantiate(_missionModel, _missionContainer);
                 _missions.Add(mission);
                 mission.SetMissionType(type);
             }
         }
 
-        public bool IsTypeInMission(SpaceBodyControllerBase.SpaceBodyType type)
+        private SpaceBodyControllerBase.SpaceBodyType GetRandomType()
         {
-            return _missionTypes.Contains(type);
-        }
+            SpaceBodyControllerBase.SpaceBodyType randomType;
 
-        public void MissionAccomplished()
+            if (Random.value < 0.4f)
+            {
+                do
+                {
+                    randomType = RandomEnum.GetRandomFromEnum<SpaceBodyControllerBase.SpaceBodyType>();
+                }
+                while (randomType == SpaceBodyControllerBase.SpaceBodyType.Star ||
+                       randomType == SpaceBodyControllerBase.SpaceBodyType.BlackHole ||
+                       randomType == SpaceBodyControllerBase.SpaceBodyType.Planet);
+            }
+            else
+            {
+                return SpaceBodyControllerBase.SpaceBodyType.Planet;
+            }
+
+            return randomType;
+        }
+        
+        public bool IsTypeInMission(SpaceBodyControllerBase spaceBody)
         {
-            _missions[_numberMissionAccomplished].Accomplish();
-            _numberMissionAccomplished++;
+            foreach (MissionHandler missionHandler in _missions)
+            {
+                if (missionHandler.IsAccomplished) continue;
+                
+                if (missionHandler.Compare(spaceBody))
+                {
+                    _numberMissionAccomplished++;
+                    missionHandler.Accomplish();
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private void Reset()
@@ -61,7 +84,6 @@ namespace Controllers
             }
             
             _missions.Clear();
-            _missionTypes.Clear();
         }
 
         private void Start()

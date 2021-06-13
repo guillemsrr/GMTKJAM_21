@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Controllers
 {
     public abstract class SpaceBodyControllerBase: MonoBehaviour
     {
-        private const float GRAVITY_RADIUS_RELATION = 1f;
-
         public enum SpaceBodyType
         {
             Planet,
@@ -22,11 +22,12 @@ namespace Controllers
         [SerializeField] protected AudioClip _eatAudio;
         [SerializeField] private int _playerDamage = 1;
 
-        private float _gravityForce;
         
         public Vector3 Position => _transform.position;
         public SpaceBodyType Type => _type;
         public int PlayerDamage => _playerDamage;
+        private Vector3 _baseScale; 
+
 
         public virtual void Initialize()
         {
@@ -39,18 +40,37 @@ namespace Controllers
             AudioManager.Instance.Play(_eatAudio);
         }
 
-        public void SetGravityForce(float force)
+        public void SetSpaceBodyScale()
         {
-            _gravityForce = force;
-            _gravityAttractor.SetGravity(force);
-            _sphereCollider.radius = force * GRAVITY_RADIUS_RELATION;
+            float scale = GetRandomScale();
+            SetScale(scale);
         }
 
-        public void Destroy()
+        protected float GetRandomScale()
+        {
+            return Random.Range(0.9f, 2f);
+        }
+
+        protected void SetGravityForce(float force)
+        {
+            _gravityAttractor.SetGravity(-force);
+        }
+
+        private void SetScale(float force)
+        {
+            _transform.localScale = new Vector3(_baseScale.x* force, _baseScale.y*force, _baseScale.z*force);
+        }
+
+        public virtual void Destroy()
         {
             CoreManager.Instance.GetLevelGenerator.DestroySpaceBody(_type, this);
             
             //instantiate destroy visual
+        }
+
+        protected void Awake()
+        {
+            _baseScale = _transform.localScale;
         }
     }
 }

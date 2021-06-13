@@ -10,6 +10,12 @@ namespace UI
         private readonly WaitForSeconds _boostWaitTime = new WaitForSeconds(2f);
         private Coroutine _boostCoroutine;
         private int _boostLevel;
+
+        public void MaxBoost()
+        {
+            _boostLevel = 2;
+            Boost();
+        }
         
         public void Boost()
         {
