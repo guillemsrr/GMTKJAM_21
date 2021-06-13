@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace Controllers
@@ -37,6 +37,8 @@ namespace Controllers
 
         private bool IsDead => _life <= 0;
         public int Life => _life;
+        public PlayerController PlayerController => _playerController;
+        public PlayerVisualsHandler PlayerVisualsHandler => _playerVisualsHandler;
 
         private bool _isFirtFault = true;
         private bool _isFirtCorrect = true;
