@@ -40,15 +40,20 @@ namespace Controllers
             AudioManager.Instance.Play(_eatAudio);
         }
 
-        public void SetSpaceBodyVisualScale()
+        public void SetSpaceBodyScale()
         {
-            float force = GetRandomScale();
-            SetScale(force);
+            float scale = GetRandomScale();
+            SetScale(scale);
         }
 
         protected float GetRandomScale()
         {
             return Random.Range(0.9f, 2f);
+        }
+
+        protected void SetGravityForce(float force)
+        {
+            _gravityAttractor.SetGravity(-force);
         }
 
         private void SetScale(float force)
