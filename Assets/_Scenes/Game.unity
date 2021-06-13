@@ -197,6 +197,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 784972198001258038, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
   m_PrefabInstance: {fileID: 784972197907760174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &357392092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7108412180823380803, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+  m_PrefabInstance: {fileID: 1083574697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &593138552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -911,6 +916,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 179677720}
     m_Modifications:
+    - target: {fileID: 399756426, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2614974574705160994, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108412180823380803, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8415309771077139554, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.46370876
@@ -982,6 +999,10 @@ PrefabInstance:
     - target: {fileID: 8415309771917657811, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
       propertyPath: m_Name
       value: VFXPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8415309771917657811, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8415309772075893764, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
       propertyPath: m_LocalScale.x
@@ -1131,7 +1152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000047683716
+      value: -0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1179,6 +1200,11 @@ PrefabInstance:
       objectReference: {fileID: 179677720}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89a7c0806be05c0448299031e7618361, type: 3}
+--- !u!1 &1339603054 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8415309771917657811, guid: 9ae34bac3517b6447bbbe3cf39a25c7e, type: 3}
+  m_PrefabInstance: {fileID: 1083574697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1751940901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1498,6 +1524,14 @@ PrefabInstance:
       propertyPath: _eatErrorClip
       value: 
       objectReference: {fileID: 8300000, guid: 7f3f4376c06bacf41adf60c28c01d283, type: 3}
+    - target: {fileID: 7946823569619257701, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+      propertyPath: _vfx
+      value: 
+      objectReference: {fileID: 1339603054}
+    - target: {fileID: 7946823569619257701, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
+      propertyPath: _gameEffects
+      value: 
+      objectReference: {fileID: 357392092}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3954e8e741a1975458f0685d2732ab52, type: 3}
 --- !u!114 &784972197907760175 stripped

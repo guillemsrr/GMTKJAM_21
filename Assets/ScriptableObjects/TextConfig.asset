@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TextConfig
   m_EditorClassIdentifier: 
   _tutorial_step:
-  - Press <color=cyan><b> W,A,S,D</b></color> for <b>Move</b>
+  - Press <color=cyan><b> W,A,S,D or Arrows</b></color> for <b>Move</b>
   - Press <color=cyan><b>P</b></color> for view orbits
   - Press <color=cyan><b>R</b></color> for restart
