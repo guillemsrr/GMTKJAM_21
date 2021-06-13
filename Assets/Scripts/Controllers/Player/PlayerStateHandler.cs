@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controllers.VFX;
+using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 namespace Controllers
@@ -29,6 +30,7 @@ namespace Controllers
         [SerializeField] private AudioClip _deadClip;
         [SerializeField] private AudioClip _eatErrorClip;
         [SerializeField] private TemporalVFX _eaTemporalVFX;
+        [SerializeField] private TemporalVFX _deathTemporalVFX;
 
         private int _life = FULL_LIFE;
         public int Level { get; private set; }
@@ -61,6 +63,7 @@ namespace Controllers
                 _playerVisualsHandler.DeathVisuals();
                 AudioManager.Instance.Play(_deadClip);
                 DeadEvent?.Invoke();
+                InstantiateVFX(_deathTemporalVFX);
             }
             else
             {
@@ -129,8 +132,7 @@ namespace Controllers
             if (other.tag.Equals("SpaceBody"))
             {
                 EatSpaceBody(other.GetComponent<SpaceBodyControllerBase>());
-                TemporalVFX explosion = Instantiate(_eaTemporalVFX);
-                explosion.transform.position = transform.position;
+                InstantiateVFX(_eaTemporalVFX);
             }
         }
 
@@ -140,6 +142,12 @@ namespace Controllers
             {
                 LevelManager.Instance.LoadGame();
             }
+        }
+
+        private void InstantiateVFX(TemporalVFX vfx)
+        {
+            TemporalVFX explosion = Instantiate(_eaTemporalVFX);
+            explosion.transform.position = transform.position;
         }
     }
 }

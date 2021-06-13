@@ -150,6 +150,7 @@ MonoBehaviour:
   _deadClip: {fileID: 0}
   _eatErrorClip: {fileID: 0}
   _eaTemporalVFX: {fileID: 8566638944693045691, guid: 40bc0a955aa0bfd4a9e76b16a2f311a2, type: 3}
+  _deathTemporalVFX: {fileID: 5333323813958323231, guid: be7133501c0fee944b544a2e893d9898, type: 3}
 --- !u!114 &7946823569619257701
 MonoBehaviour:
   m_ObjectHideFlags: 0
