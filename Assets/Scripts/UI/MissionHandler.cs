@@ -13,7 +13,6 @@ namespace UI
         [SerializeField] private SpaceBodyLogo _commetLogo;
         [SerializeField] private SpaceBodyLogo _asteroidLogo;
         [SerializeField] private SpaceBodyLogo _magmaLogo;
-        [SerializeField] private SpaceBodyLogo _Logo;
 
         private Dictionary<SpaceBodyControllerBase.SpaceBodyType, SpaceBodyLogo> _spaceBodyLogosDictionary;
         private SpaceBodyLogo _logo;

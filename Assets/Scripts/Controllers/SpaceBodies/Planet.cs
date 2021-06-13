@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Utils;
 
 namespace Controllers
@@ -45,6 +46,8 @@ namespace Controllers
 
         private void Awake()
         {
+            base.Awake();
+            
             _planetVisualsByType = new Dictionary<PlanetType, PlanetVisual>
             {
                 {PlanetType.Ice, _icePlanetVisuals},

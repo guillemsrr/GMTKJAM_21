@@ -193,10 +193,10 @@ namespace LevelGenerator
 
         private void CreateSpaceBody(TemplatePool<SpaceBodyControllerBase> objectsPool)
         {
-            Vector3 randomPosition = GetPosition();            
+            Vector3 randomPosition = GetPosition();
             SpaceBodyControllerBase spaceBody = objectsPool.Instantiate(randomPosition, Quaternion.identity);
             spaceBody.Initialize();
-            spaceBody.SetSpaceBodyAttraction();
+            spaceBody.SetSpaceBodyVisualScale();
             _spaceBodies.Add(spaceBody);
         }
 
