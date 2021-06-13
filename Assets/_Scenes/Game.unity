@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37387e5b0ff2d04469e5ee292c2f68b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundTrackVolume: 1
+  _soundTrackVolume: 0
   _initialVolume: 1
   _volumeRampSpeed: 4
   _playOnStart: 1
@@ -1131,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000009536743
+      value: -0.00000047683716
       objectReference: {fileID: 0}
     - target: {fileID: 1443750028679643694, guid: 89a7c0806be05c0448299031e7618361, type: 3}
       propertyPath: m_LocalPosition.y

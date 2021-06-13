@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.029289223, g: 0.5422078, b: 0.58238494, a: 1}
+  m_IndirectSpecularColor: {r: 0.065650515, g: 0.090478435, b: 0.23074333, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -392,49 +392,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<b>Technical Artist:</b>
-
-    Omar
-
-    Mario
-
-    Ferran
-
-
-    <b>Technical
-    Audio:</b>
-
-    Christian
-
-
-    <b>Programmers:</b>
-
-    Guillem
-
-    Roger
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    PRESS
-    ANY KEY'
+  m_Text: "<b>Technical Artist:</b>\nOmar Rinaz\nMario Silva\nFerran Soles\n\n<b>Technical
+    Audio:</b>\nKris G. Moncada\n\n<b>Programmers:</b>\nGuillem Serra\nRoger Mart\xEDn\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPRESS
+    ANY KEY"
 --- !u!222 &220169564
 CanvasRenderer:
   m_ObjectHideFlags: 0
