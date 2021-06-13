@@ -87,9 +87,9 @@ namespace Controllers
         private void EatSpaceBody(SpaceBodyControllerBase eatenBody)
         {
             BodyEatenEvent?.Invoke(eatenBody);
+            eatenBody.TriggerEatAudio();
             eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);         
-            eatenBody.TriggerEatAudio();
         }
 
         public void EatMissionPlanet()
