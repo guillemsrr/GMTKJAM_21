@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controllers.VFX;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 namespace Controllers
@@ -53,6 +52,8 @@ namespace Controllers
 
         private void TakeDamage(int damageAmount)
         {
+            AudioManager.Instance.Play(_eatErrorClip);
+
             if (_isImmune) return;
             
             _life -= damageAmount;
@@ -64,10 +65,6 @@ namespace Controllers
                 AudioManager.Instance.Play(_deadClip);
                 DeadEvent?.Invoke();
                 InstantiateVFX(_deathTemporalVFX);
-            }
-            else
-            {
-                AudioManager.Instance.Play(_eatErrorClip);
             }
         }
 
@@ -87,9 +84,9 @@ namespace Controllers
         private void EatSpaceBody(SpaceBodyControllerBase eatenBody)
         {
             BodyEatenEvent?.Invoke(eatenBody);
+            eatenBody.TriggerEatAudio();
             eatenBody.Destroy();
             _eatenSpaceBodies.Enqueue(eatenBody);         
-            eatenBody.TriggerEatAudio();
         }
 
         public void EatMissionPlanet()

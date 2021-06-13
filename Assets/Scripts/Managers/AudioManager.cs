@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
             {
                 audio.clip = clip;
                 audio.Play();
-                break;
+                return;
             }          
         }
     }
