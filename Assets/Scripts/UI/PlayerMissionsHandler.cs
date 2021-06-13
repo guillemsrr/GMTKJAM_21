@@ -8,6 +8,7 @@ namespace Controllers
     public class PlayerMissionsHandler: MonoBehaviour
     {
         private const int MAX_MISSIONS = 8;
+        
         [SerializeField] private Transform _missionContainer;
         [SerializeField] private MissionHandler _missionModel;
 
@@ -56,7 +57,7 @@ namespace Controllers
         {
             foreach (MissionHandler missionHandler in _missions)
             {
-                Destroy(missionHandler);
+                Destroy(missionHandler.gameObject);
             }
             
             _missions.Clear();
