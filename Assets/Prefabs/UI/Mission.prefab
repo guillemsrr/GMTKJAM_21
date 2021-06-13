@@ -89,3 +89,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _image: {fileID: 6813571141832832598}
+  _commetLogo:
+    _unaquired: {fileID: 21300000, guid: 72acf7793313fe54594fd4c4c5072c5a, type: 3}
+    _aquired: {fileID: 21300000, guid: 07afb3e4ca4ed0d4fa2c7ca3544b84a2, type: 3}
+  _asteroidLogo:
+    _unaquired: {fileID: 21300000, guid: 1267c8822ea31e94a9415c229b34b759, type: 3}
+    _aquired: {fileID: 21300000, guid: 5fa0c2218ce2e924c9942611b37d7164, type: 3}
+  _magmaLogo:
+    _unaquired: {fileID: 21300000, guid: a1ccedd9333f06e44b85afbf620e8792, type: 3}
+    _aquired: {fileID: 21300000, guid: 42ef316bf450d0049b13ecd7adef6c6d, type: 3}
+  _Logo:
+    _unaquired: {fileID: 0}
+    _aquired: {fileID: 0}

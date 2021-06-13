@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SoundTrack : MonoBehaviour
 {
-    [SerializeField]
-    private float _soundTrackVolume = 1;
+
+    public float _soundTrackVolume = 1;
     [SerializeField]
     private float _initialVolume = 1;
     [SerializeField]

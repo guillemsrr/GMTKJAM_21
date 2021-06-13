@@ -27,7 +27,9 @@ namespace Controllers
         [SerializeField] private PlanetVisual _radioActivePlanetVisuals;
         
         private Dictionary<PlanetType, PlanetVisual> _planetVisualsByType;
-        
+
+        [SerializeField]
+        private GameObject _sfx;
 
         public override void Initialize()
         {
@@ -42,7 +44,14 @@ namespace Controllers
             _meshRenderer.material = planetVisual.Material;
             _meshFilter.mesh = planetVisual.Mesh;
             _eatAudio = planetVisual.EatAudioClip;
-        }
+
+            if (_sfx != null) GameObject.Destroy(_sfx);
+            if (planetVisual.Sfx)
+            {
+                _sfx = GameObject.Instantiate(planetVisual.Sfx, transform.position,transform.rotation ,transform);
+            }
+
+        }       
 
         private void Awake()
         {
