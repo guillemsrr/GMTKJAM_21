@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3537191039559584778}
   - component: {fileID: 2650134271984285552}
   m_Layer: 0
-  m_Name: WaterPlanetParticles
+  m_Name: WaterPlanetVFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

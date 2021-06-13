@@ -44,7 +44,7 @@ MonoBehaviour:
     _material: {fileID: 2100000, guid: 27d1c54ccb2d5964a968f19b13f3518e, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: 3af5997a3af3a7b479a152f875d66db9, type: 3}
     _mesh: {fileID: -6161388658401459184, guid: 7621aaac6e19de54c801728dc347df46, type: 3}
-    _sfx: {fileID: 0}
+    _sfx: {fileID: 7484880419523168686, guid: fcf6512b716953e40959b099d94040e2, type: 3}
   _sfx: {fileID: 0}
 --- !u!1001 &8900725307194072803
 PrefabInstance:
