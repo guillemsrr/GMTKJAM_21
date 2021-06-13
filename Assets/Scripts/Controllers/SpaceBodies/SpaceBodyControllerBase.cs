@@ -10,6 +10,7 @@ namespace Controllers
         {
             Planet,
             Asteroid,
+            Commet,
             Star,
             BlackHole
         }
@@ -19,7 +20,7 @@ namespace Controllers
         [SerializeField] private SphereCollider _sphereCollider;
         [SerializeField] private SpaceBodyType _type;
         [SerializeField] protected AudioClip _eatAudio;
-        [SerializeField] private int _playerDamage = 3;
+        [SerializeField] private int _playerDamage = 1;
 
         private float _gravityForce;
         
@@ -34,7 +35,8 @@ namespace Controllers
 
         public virtual void TriggerEatAudio()
         {
-            
+            if (_eatAudio == null) return;
+            AudioManager.Instance.Play(_eatAudio);
         }
 
         public void SetGravityForce(float force)
@@ -46,7 +48,7 @@ namespace Controllers
 
         public void Destroy()
         {
-            Destroy(gameObject);
+            CoreManager.Instance.GetLevelGenerator.DestroySpaceBody(_type, this);
             
             //instantiate destroy visual
         }

@@ -15,9 +15,9 @@ MonoBehaviour:
   _transform: {fileID: 6773320156142632010}
   _gravityAttractor: {fileID: 6773320157577529864}
   _sphereCollider: {fileID: 6773320157577529973}
-  _type: 3
+  _type: 4
   _eatAudio: {fileID: 0}
-  _playerDamage: 10
+  _playerDamage: 4
 --- !u!1001 &8793073757870962035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,10 +25,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 975732086155113115, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
-      propertyPath: m_Radius
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -76,6 +72,14 @@ PrefabInstance:
     - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Name
       value: Blackhole
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f811cc9ced7e62142b7161e69b55ae10, type: 2}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}

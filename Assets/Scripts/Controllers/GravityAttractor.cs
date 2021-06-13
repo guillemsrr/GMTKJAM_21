@@ -1,3 +1,4 @@
+using Controllers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,10 +18,17 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private Material _triggerMat;
 
-    Transform _player;
+    private Transform _player;
+    private Transform _commet;
     private GameObject _trigger;
+    private SpaceBodyControllerBase _spaceBodyControllerBase;
 
     private CoreManager _coreManager;
+
+    private void Awake()
+    {
+        _spaceBodyControllerBase = GetComponentInParent<SpaceBodyControllerBase>();
+    }
 
     private void Start()
     {
@@ -45,15 +53,27 @@ public class GravityAttractor : MonoBehaviour
             Attract(body, _gravity, false, false);
     }
 
-    public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot)
+    public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot, bool isPlayer = true)
     {
-        Vector3 targetDir = (body.position - transform.position).normalized;
+        Vector3 targetDir = (body.position - transform.position).normalized;       
 
         Vector3 bodyUp = body.up;
         Quaternion targetRotation = Quaternion.identity;
         if (!dontAffectForce)
         {
-            body.GetComponent<PlayerController>().AddForce(targetDir * customGravity);
+            if (isPlayer)
+            {
+                float distance;
+                if (_spaceBodyControllerBase.Type.Equals(SpaceBodyControllerBase.SpaceBodyType.BlackHole))
+                {
+                    distance = Vector3.Distance(body.position, transform.position);
+                    Debug.Log("Distance " + distance);
+                }
+
+                body.GetComponent<PlayerController>().AddForce(targetDir * customGravity);
+            }
+            else
+                body.GetComponent<Commet>().AddForce(targetDir * customGravity);
         }
         if (!dontAffectRot)
             targetRotation = Quaternion.FromToRotation(bodyUp, targetDir) * body.rotation;
@@ -70,6 +90,9 @@ public class GravityAttractor : MonoBehaviour
     {
         if (!_dontAffectForce)
             Attract(_player);
+
+        if(_commet)
+            Attract(_commet, _gravity, false, true, false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,6 +102,10 @@ public class GravityAttractor : MonoBehaviour
             _dontAffectForce = false;
             _player = other.transform;
         }
+        else if (other.gameObject.name.Contains("Commet"))
+        {
+            _commet = other.transform;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -87,6 +114,10 @@ public class GravityAttractor : MonoBehaviour
         {
             _dontAffectForce = true;
             _player = null;
+        }
+        else if (other.gameObject.name.Contains("Commet"))
+        {
+            _commet = null;
         }
     }
 

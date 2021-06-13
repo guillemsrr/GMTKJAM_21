@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _planet: {fileID: 806416262, guid: 95ad4b80bd99f6440b4a248e084f925c, type: 3}
   _asteroid: {fileID: 5383840981648653937, guid: a2e06540c61f560468ad23f267df1482, type: 3}
+  _commet: {fileID: 1398440336943213431, guid: 3c4d6f3bbe4b9ec48839de2d0b291f87, type: 3}
   _blackhole: {fileID: 6443346329176764138, guid: d8a653de34f9f8f4fa682ffd107cc370, type: 3}
   _star: {fileID: 7394742922700490695, guid: a30c7d9188d22394193648c700ee50a6, type: 3}

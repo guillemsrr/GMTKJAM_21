@@ -11,6 +11,10 @@ public class CoreManager : MonoBehaviour
     private TextConfiguration _textConfiguration;
 
     private Tutorial _tutorial;
+    [SerializeField]
+    private LevelGenerator.LevelGenerator _levelGenerator;
+
+    public LevelGenerator.LevelGenerator GetLevelGenerator => _levelGenerator;
 
     private static CoreManager _intance = null;
     public static CoreManager Instance

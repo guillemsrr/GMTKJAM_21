@@ -30,7 +30,7 @@ namespace Controllers
 
         public override void Initialize()
         {
-            //ApplyRandomVisuals();
+            ApplyRandomVisuals();
         }
 
         private void ApplyRandomVisuals()

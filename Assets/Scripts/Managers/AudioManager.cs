@@ -5,10 +5,10 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField]
-    private AudioMixerGroup _audioMixerGroup;
-    [SerializeField]
-    private AudioSource[] _audioSources = new AudioSource[10];
+    [SerializeField] private AudioMixer _audioMixerGroupMaster;
+    [SerializeField] private AudioMixerGroup _audioMixerGroupSFX;
+    [SerializeField] private AudioSource[] _audioSources = new AudioSource[10];
+    
 
     public static AudioManager Instance;
 
@@ -19,19 +19,31 @@ public class AudioManager : MonoBehaviour
         for(int x = 0; x < _audioSources.Length; x++)
         {
             _audioSources[x] = gameObject.AddComponent<AudioSource>() as AudioSource;
-            _audioSources[x].outputAudioMixerGroup = _audioMixerGroup;
+            _audioSources[x].outputAudioMixerGroup = _audioMixerGroupSFX;
         }
     }
 
     public void Play(AudioClip clip)
     {
+        if (clip == null) return;
         foreach (var audio in _audioSources)
         {
             if (!audio.isPlaying)
             {
                 audio.clip = clip;
                 audio.Play();
+                break;
             }          
         }
+    }
+
+    public void Mute()
+    {
+        _audioMixerGroupMaster.SetFloat("Volume", -80f);
+    }
+
+    public void Unmute()
+    {
+        _audioMixerGroupMaster.SetFloat("Volume", 0f);
     }
 }

@@ -15,7 +15,9 @@ MonoBehaviour:
   _transform: {fileID: 3587756596217847347}
   _gravityAttractor: {fileID: 3587756597064509553}
   _sphereCollider: {fileID: 3587756597064509452}
-  _type: 2
+  _type: 3
+  _eatAudio: {fileID: 0}
+  _playerDamage: 2
 --- !u!1001 &1599528458605287178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71,6 +73,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star
       objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f4e0df88a6b430446a01af84f91c511d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
 --- !u!1 &3587756596217847344 stripped

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: TextConfig
   m_EditorClassIdentifier: 
   _tutorial_step:
-  - Press <color=blue><b> W,A,S,D</b></color> for <b>Move</b>
-  - Bla Bla Bla
+  - Press <color=cyan><b> W,A,S,D</b></color> for <b>Move</b>
+  - Press <color=cyan><b>P</b></color> for view orbits

@@ -9,6 +9,7 @@ namespace LevelGenerator
     {
         [SerializeField] private Planet _planet;
         [SerializeField] private Asteroid _asteroid;
+        [SerializeField] private Commet _commet;
         [SerializeField] private Blackhole _blackhole;
         [SerializeField] private Star _star;
 
@@ -18,7 +19,7 @@ namespace LevelGenerator
         {
             _spaceBodiesDictionary = new Dictionary<SpaceBodyControllerBase.SpaceBodyType, SpaceBodyControllerBase>
             {
-                
+                {SpaceBodyControllerBase.SpaceBodyType.Commet, _commet},
                 {SpaceBodyControllerBase.SpaceBodyType.Asteroid, _asteroid},
                 {SpaceBodyControllerBase.SpaceBodyType.Planet, _planet},
                 {SpaceBodyControllerBase.SpaceBodyType.Star, _star},
