@@ -316,7 +316,6 @@ MonoBehaviour:
   _lowLife: {fileID: 21300000, guid: a71de1a44d2f8904aba7ad737513fb3d, type: 3}
   _midLife: {fileID: 21300000, guid: f57529dc7cd2f34449a0d339b9da7d8f, type: 3}
   _fullLife: {fileID: 21300000, guid: 16d711cf7120f9c4db2f0ebb80ecc4ba, type: 3}
-  _playerController: {fileID: 0}
 --- !u!1 &641171227265718374
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,28 +593,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: eb685357bc24106468ffab948f7ce582, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
+    m_Font: {fileID: 12800000, guid: 45fb79eff2feacc46ab0e314c4979a3d, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 1
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 54
+    m_Alignment: 7
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: SCORE
+    m_LineSpacing: 0.73
+  m_Text: '0
+
+    SCORE'
 --- !u!1 &1917391610303124546
 GameObject:
   m_ObjectHideFlags: 0
