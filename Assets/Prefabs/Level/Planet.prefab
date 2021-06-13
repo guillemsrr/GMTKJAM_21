@@ -21,9 +21,9 @@ MonoBehaviour:
   _meshRenderer: {fileID: 6664577268204052966}
   _meshFilter: {fileID: 6664577268204052967}
   _icePlanetVisuals:
-    _material: {fileID: 2100000, guid: 8711711e4f5d3524caac8f1b8c909bcd, type: 2}
-    _eatAudioClip: {fileID: 8300000, guid: 753a2a0875c68ae4ba997809d05f68e7, type: 3}
-    _mesh: {fileID: 0}
+    _material: {fileID: 2100000, guid: d929e31a979c35841bd3458d0f480e2a, type: 2}
+    _eatAudioClip: {fileID: 8300000, guid: c615f3c9b72fde546ba4fede11a6d01f, type: 3}
+    _mesh: {fileID: 8198904912172144262, guid: b8a676a408822d24985a628270efea47, type: 3}
   _magmaPlanetVisuals:
     _material: {fileID: 2100000, guid: c6cc437a1e1f3e14c9f7665d0acf5169, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: ff1b984c7ae551a40a6c4dc2c5a4845b, type: 3}
@@ -94,6 +94,10 @@ PrefabInstance:
     - target: {fileID: 2880314973109274938, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Name
       value: Planet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: _mass
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}

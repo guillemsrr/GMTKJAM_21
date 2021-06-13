@@ -9,7 +9,7 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private float _gravity = -10f;
     [SerializeField]
-    private float _mass;
+    private float _mass = 10f;
     [SerializeField]
     private SphereCollider _sphereCollider;
 
@@ -25,6 +25,8 @@ public class GravityAttractor : MonoBehaviour
 
     private CoreManager _coreManager;
 
+    private Vector3 _newDirection;
+
     private void Awake()
     {
         _spaceBodyControllerBase = GetComponentInParent<SpaceBodyControllerBase>();
@@ -32,12 +34,23 @@ public class GravityAttractor : MonoBehaviour
 
     private void Start()
     {
+        _gravity += _mass / _gravity;
+        _sphereCollider.radius = _gravity * -1;
         _trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        _trigger.transform.parent = transform;
+        _trigger.transform.parent = transform.parent;
         _trigger.GetComponent<Renderer>().material = _triggerMat;
         _trigger.transform.position = transform.position;
-        _trigger.transform.localScale = new Vector3(_sphereCollider.radius*2,1, _sphereCollider.radius * 2);
+        _trigger.transform.localScale = new Vector3(_sphereCollider.radius*2,1, _sphereCollider.radius*2);
+        _trigger.name = "Orbit Area";
         _trigger.SetActive(false);
+        Destroy(_trigger.GetComponent<SphereCollider>());
+
+        if (!_spaceBodyControllerBase.Type.Equals(SpaceBodyControllerBase.SpaceBodyType.Commet))
+        {
+            _newDirection = new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
+
+            transform.rotation = Quaternion.LookRotation(_newDirection);
+        }
 
         _coreManager = CoreManager.Instance;
         _coreManager.OnIsDebug += HandlerIsDebug;        
@@ -88,6 +101,9 @@ public class GravityAttractor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!_spaceBodyControllerBase.Type.Equals(SpaceBodyControllerBase.SpaceBodyType.Commet))
+            transform.Rotate(0, (360 / (5)) * Time.deltaTime, 0, Space.Self);
+
         if (!_dontAffectForce)
             Attract(_player);
 
