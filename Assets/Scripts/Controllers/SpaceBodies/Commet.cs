@@ -1,3 +1,4 @@
+using Controllers.VFX;
 using UnityEngine;
 
 namespace Controllers
@@ -6,6 +7,10 @@ namespace Controllers
     {
         [SerializeField]
         private float _maxSpeed = 5;
+
+        [SerializeField] private TemporalVFX _destroyVFX;
+
+        [SerializeField] private Transform _destroyTransform;
 
         private Rigidbody _rigidbody;
 
@@ -35,10 +40,12 @@ namespace Controllers
             }
         }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider collider)
         {
-            if(collision.gameObject.tag.Equals("SpaceBody"))
+            if(collider.tag.Equals("SpaceBody"))
             {
+                TemporalVFX explosion = Instantiate(_destroyVFX);
+                explosion.transform.position = _destroyTransform.position;
                 CoreManager.Instance.GetLevelGenerator.DestroySpaceBody(SpaceBodyType.Commet, this);
             }
         }
