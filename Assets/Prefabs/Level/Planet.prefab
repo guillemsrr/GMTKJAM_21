@@ -35,7 +35,7 @@ MonoBehaviour:
   _waterPlanetVisuals:
     _material: {fileID: 2100000, guid: 869539bcb9e06cb4396d4de77eef3d50, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: 753a2a0875c68ae4ba997809d05f68e7, type: 3}
-    _mesh: {fileID: 0}
+    _mesh: {fileID: 6986608315983119242, guid: 01f640e9975a8ea489ee8fee91b08c52, type: 3}
   _radioActivePlanetVisuals:
     _material: {fileID: 2100000, guid: 27d1c54ccb2d5964a968f19b13f3518e, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: 3af5997a3af3a7b479a152f875d66db9, type: 3}

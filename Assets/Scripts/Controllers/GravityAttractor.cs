@@ -21,8 +21,14 @@ public class GravityAttractor : MonoBehaviour
     private Transform _player;
     private Transform _commet;
     private GameObject _trigger;
+    private SpaceBodyControllerBase _spaceBodyControllerBase;
 
     private CoreManager _coreManager;
+
+    private void Awake()
+    {
+        _spaceBodyControllerBase = GetComponentInParent<SpaceBodyControllerBase>();
+    }
 
     private void Start()
     {
@@ -49,14 +55,23 @@ public class GravityAttractor : MonoBehaviour
 
     public void Attract(Transform body, float customGravity, bool dontAffectForce, bool dontAffectRot, bool isPlayer = true)
     {
-        Vector3 targetDir = (body.position - transform.position).normalized;
+        Vector3 targetDir = (body.position - transform.position).normalized;       
 
         Vector3 bodyUp = body.up;
         Quaternion targetRotation = Quaternion.identity;
         if (!dontAffectForce)
         {
-            if(isPlayer)
+            if (isPlayer)
+            {
+                float distance;
+                if (_spaceBodyControllerBase.Type.Equals(SpaceBodyControllerBase.SpaceBodyType.BlackHole))
+                {
+                    distance = Vector3.Distance(body.position, transform.position);
+                    Debug.Log("Distance " + distance);
+                }
+
                 body.GetComponent<PlayerController>().AddForce(targetDir * customGravity);
+            }
             else
                 body.GetComponent<Commet>().AddForce(targetDir * customGravity);
         }

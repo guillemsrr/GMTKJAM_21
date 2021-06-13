@@ -39,7 +39,7 @@ namespace Controllers
             PlanetVisual planetVisual = _planetVisualsByType[planetType];
 
             _meshRenderer.material = planetVisual.Material;
-            //_meshFilter.mesh = planetVisual.Mesh;
+            _meshFilter.mesh = planetVisual.Mesh;
             _eatAudio = planetVisual.EatAudioClip;
         }
 
