@@ -16,7 +16,7 @@ namespace Controllers
 
         private void Update()
         {
-            
+            transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
         }
 
         public void AddForce(Vector3 force)

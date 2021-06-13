@@ -14,7 +14,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 16
   m_CollisionDetection: 0
 --- !u!114 &1398440336943213431
 MonoBehaviour:
@@ -31,7 +31,7 @@ MonoBehaviour:
   _transform: {fileID: 8383503926606121097}
   _gravityAttractor: {fileID: 8383503925705866955}
   _sphereCollider: {fileID: 8383503925705866934}
-  _type: 0
+  _type: 2
   _eatAudio: {fileID: 8300000, guid: c49ec188f1f0c6c4d8cd205dd39cb6da, type: 3}
   _playerDamage: 2
   _maxSpeed: 5
@@ -42,6 +42,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 975732086155113115, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2880314973109274937, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -90,13 +94,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Commet
       objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921924, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4232377182439009666, guid: a9e2b12fbde7fb24fbc35f19afbea32f, type: 3}
     - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 240effb38ff3ca340926de569b134d72, type: 2}
+    - target: {fileID: 2880314973887921926, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921927, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921927, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921927, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: _mass
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: _gravity
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}

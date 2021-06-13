@@ -73,6 +73,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid
       objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921924, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1751449741094331831, guid: 3e8ddd9cb66486541af3bfbc1a3d4813, type: 3}
     - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

@@ -889,6 +889,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 871193209184913852, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1917391610345770777, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
       propertyPath: _playerStateHandler
       value: 
@@ -979,10 +983,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1917391610345770781, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917391610345770782, guid: 08188d5b9e1a61b4c8f1f4a2a7397544, type: 3}
-      propertyPath: m_RenderMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
