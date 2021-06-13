@@ -21,9 +21,9 @@ namespace LevelGenerator
         private TemplatePool<SpaceBodyControllerBase> _asteroidsPool;
         private TemplatePool<SpaceBodyControllerBase> _commetsPool;
 
-        private const float VISION_RADIUS = 50f;
+        private const float VISION_RADIUS = 70f;
         private const float EXTRA_RADIUS = VISION_RADIUS + 10f;
-        private const float MINIMUM_BODY_DISTANCE = 5f;
+        private const float MINIMUM_BODY_DISTANCE = 10f;
         private const int NUMBER_BODIES = 70;
 
         private const int NUMBER_ASTEROIDS = 30;
@@ -35,7 +35,7 @@ namespace LevelGenerator
 
         private readonly WaitForSeconds POOL_CHECK_WAIT = new WaitForSeconds(0.5f);
 
-        private float _minPlayerDistance = 5f;
+        private float _minPlayerDistance = VISION_RADIUS/2f;
         private float _maxPlayerDistance = VISION_RADIUS;
         private SpaceBodyRandomizer _spaceBodyRandomizer;
         
@@ -196,6 +196,7 @@ namespace LevelGenerator
             Vector3 randomPosition = GetPosition();            
             SpaceBodyControllerBase spaceBody = objectsPool.Instantiate(randomPosition, Quaternion.identity);
             spaceBody.Initialize();
+            spaceBody.SetSpaceBodyAttraction();
             _spaceBodies.Add(spaceBody);
         }
 
