@@ -33,13 +33,24 @@ namespace Controllers
             
             for (int i = 0; i < _currentNumberMissions; i++)
             {
-                SpaceBodyControllerBase.SpaceBodyType type =
-                    RandomEnum.GetRandomFromEnum<SpaceBodyControllerBase.SpaceBodyType>();
+                SpaceBodyControllerBase.SpaceBodyType type = GetRandomType();
                 _missionTypes.Add(type);
                 MissionHandler mission = Instantiate(_missionModel, _missionContainer);
                 _missions.Add(mission);
                 mission.SetMissionType(type);
             }
+        }
+
+        private SpaceBodyControllerBase.SpaceBodyType GetRandomType()
+        {
+            SpaceBodyControllerBase.SpaceBodyType randomType;
+            do
+            {
+                randomType = RandomEnum.GetRandomFromEnum<SpaceBodyControllerBase.SpaceBodyType>();
+            }
+            while (randomType == SpaceBodyControllerBase.SpaceBodyType.BlackHole);
+
+            return randomType;
         }
 
         public bool IsTypeInMission(SpaceBodyControllerBase.SpaceBodyType type)
