@@ -13,6 +13,8 @@ public class GravityAttractor : MonoBehaviour
     [SerializeField]
     private SphereCollider _sphereCollider;
 
+    [SerializeField] private bool scaleTrigger = true;
+
     public bool _dontAffectForce;
 
     [SerializeField]
@@ -35,7 +37,8 @@ public class GravityAttractor : MonoBehaviour
     private void Start()
     {
         _gravity += _mass / _gravity;
-        _sphereCollider.radius = _gravity * -1;
+        if(scaleTrigger)
+            _sphereCollider.radius = _gravity * -1;
         _trigger = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         _trigger.transform.parent = transform.parent;
         _trigger.GetComponent<Renderer>().material = _triggerMat;
