@@ -27,7 +27,7 @@ namespace UI
 
         private void EatPlanet(SpaceBodyControllerBase spaceBody)
         {
-            if (true)//_missionsHandler.IsTypeInMission(spaceBody.Type)
+            if (_missionsHandler.IsTypeInMission(spaceBody.Type))
             {
                 _playerStateHandler.EatMissionPlanet();
                 _missionsHandler.MissionAccomplished();
