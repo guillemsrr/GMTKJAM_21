@@ -14423,7 +14423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 211218136983657259}
   m_Layer: 0
-  m_Name: ICEVFX
+  m_Name: IcePlanetParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
