@@ -29,7 +29,7 @@ MonoBehaviour:
     _material: {fileID: 2100000, guid: c6cc437a1e1f3e14c9f7665d0acf5169, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: ff1b984c7ae551a40a6c4dc2c5a4845b, type: 3}
     _mesh: {fileID: 3498448844065706636, guid: 99466fba63c17014c928c34586efff8f, type: 3}
-    _sfx: {fileID: 0}
+    _sfx: {fileID: 7054020808083620330, guid: bc4a254450af98d4ea3e4153d2759604, type: 3}
   _ringsPlanetVisuals:
     _material: {fileID: 2100000, guid: 0819adce9990e3a419c9b13ed7fe2b5b, type: 2}
     _eatAudioClip: {fileID: 8300000, guid: 8744908cf3d38c048b05800484a9f3d1, type: 3}
