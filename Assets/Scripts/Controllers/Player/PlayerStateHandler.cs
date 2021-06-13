@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -108,5 +109,15 @@ namespace Controllers
                 EatSpaceBody(other.GetComponent<SpaceBodyControllerBase>());
             }
         }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                LevelManager.Instance.LoadGame();
+            }
+        }
+        
+        
     }
 }
