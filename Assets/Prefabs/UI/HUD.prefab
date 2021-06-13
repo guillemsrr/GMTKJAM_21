@@ -551,6 +551,7 @@ GameObject:
   - component: {fileID: 1917391610303124545}
   - component: {fileID: 1917391610303124544}
   - component: {fileID: 1890309873}
+  - component: {fileID: 4942825275605975967}
   m_Layer: 5
   m_Name: Missions
   m_TagString: Untagged
@@ -575,7 +576,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -50}
-  m_SizeDelta: {x: 447.3, y: 58.3}
+  m_SizeDelta: {x: 0, y: 58.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917391610303124544
 MonoBehaviour:
@@ -617,6 +618,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &4942825275605975967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917391610303124546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 1
+  m_VerticalFit: 0
 --- !u!1 &1917391610345770778
 GameObject:
   m_ObjectHideFlags: 0

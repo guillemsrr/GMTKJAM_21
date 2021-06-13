@@ -33,7 +33,7 @@ MonoBehaviour:
   _sphereCollider: {fileID: 8383503925705866934}
   _type: 0
   _eatAudio: {fileID: 8300000, guid: c49ec188f1f0c6c4d8cd205dd39cb6da, type: 3}
-  _playerDamage: 3
+  _playerDamage: 2
   _maxSpeed: 5
 --- !u!1001 &6026061846096216496
 PrefabInstance:

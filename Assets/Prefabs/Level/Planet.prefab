@@ -17,7 +17,7 @@ MonoBehaviour:
   _sphereCollider: {fileID: 6664577268204052965}
   _type: 0
   _eatAudio: {fileID: 0}
-  _playerDamage: 3
+  _playerDamage: 1
   _meshRenderer: {fileID: 6664577268204052966}
   _meshFilter: {fileID: 6664577268204052967}
   _icePlanetVisuals:
