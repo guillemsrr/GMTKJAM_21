@@ -26,12 +26,20 @@ namespace Controllers
         public Vector3 Position => _transform.position;
         public SpaceBodyType Type => _type;
         public int PlayerDamage => _playerDamage;
-        private Vector3 _baseScale; 
+        private Vector3 _baseScale;
 
+        [SerializeField]
+        private ParticleSystem[] _particleSystems;
+
+        protected void Awake()
+        {
+            
+            _baseScale = _transform.localScale;
+        }
 
         public virtual void Initialize()
         {
-            
+            _particleSystems = GetComponentsInChildren<ParticleSystem>(true);
         }
 
         public virtual void TriggerEatAudio()
@@ -59,6 +67,10 @@ namespace Controllers
         private void SetScale(float force)
         {
             _transform.localScale = new Vector3(_baseScale.x* force, _baseScale.y*force, _baseScale.z*force);
+            foreach(var ps in _particleSystems)
+            {
+                ps.transform.localScale = _transform.localScale;
+            }
         }
 
         public virtual void Destroy()
@@ -68,9 +80,5 @@ namespace Controllers
             //instantiate destroy visual
         }
 
-        protected void Awake()
-        {
-            _baseScale = _transform.localScale;
-        }
     }
 }

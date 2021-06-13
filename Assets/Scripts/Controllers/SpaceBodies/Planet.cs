@@ -36,6 +36,7 @@ namespace Controllers
         public override void Initialize()
         {
             ApplyRandomVisuals();
+            base.Initialize();
         }
 
         private void ApplyRandomVisuals()

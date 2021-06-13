@@ -30,7 +30,7 @@ namespace LevelGenerator
         private const int NUMBER_COMMETS = 10;
         private const int NUMBER_PLANETS = 15;
         private const int NUMBER_STARS = 10;
-        private const int NUMBER_BLACKHOLES = 5;
+        private const int NUMBER_BLACKHOLES = 2;
    
 
         private readonly WaitForSeconds POOL_CHECK_WAIT = new WaitForSeconds(0.5f);
