@@ -9,12 +9,15 @@ public class CoreManager : MonoBehaviour
     private DialogeCanvas _dialogeCanvas;
     [SerializeField]
     private TextConfiguration _textConfiguration;
+    [SerializeField]
+    private SoundTrack _soundTrack;
 
     private Tutorial _tutorial;
     [SerializeField]
     private LevelGenerator.LevelGenerator _levelGenerator;
 
     public LevelGenerator.LevelGenerator GetLevelGenerator => _levelGenerator;
+    public SoundTrack GetSoundTrack => _soundTrack;
 
     private static CoreManager _intance = null;
     public static CoreManager Instance
