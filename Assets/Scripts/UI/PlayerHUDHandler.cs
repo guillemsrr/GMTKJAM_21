@@ -8,7 +8,7 @@ namespace UI
         [SerializeField] private PlayerStateHandler _playerStateHandler;
         [SerializeField] private PlayerMissionsHandler _missionsHandler;
         [SerializeField] private BarsController _lifeController;
-        [SerializeField] private BarsController _boostController;
+        [SerializeField] private BoostController _boostController;
         [SerializeField] private GameObject _gameOverObject;
 
         private void Awake()
@@ -18,11 +18,7 @@ namespace UI
             _playerStateHandler.DeadEvent += ApplyGameOver;
             _playerStateHandler.BodyEatenEvent += EatPlanet;
         }
-
-        private void DamageBars(float damage)
-        {
-            
-        }
+        
 
         private void ApplyGameOver()
         {
@@ -35,6 +31,7 @@ namespace UI
             {
                 _playerStateHandler.EatMissionPlanet();
                 _missionsHandler.MissionAccomplished();
+                _boostController.Boost();
                 
                 if (_missionsHandler.AreAllMissionsAccomplished)
                 {
@@ -45,10 +42,10 @@ namespace UI
             else
             {
                 _playerStateHandler.EatIncorrectPlanet(spaceBody);
-                DamageBars(spaceBody.PlayerDamage);
+                _boostController.ResetBoostBars();
             }
             
-            _lifeController.SetLife(_playerStateHandler.Life);
+            _lifeController.SetBars(_playerStateHandler.Life);
         }
     }
 }

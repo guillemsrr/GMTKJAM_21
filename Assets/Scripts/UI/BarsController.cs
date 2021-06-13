@@ -12,14 +12,19 @@ namespace UI
         [SerializeField] private Sprite _midLife;
         [SerializeField] private Sprite _fullLife;
 
-        public void SetLife(int life)
+        public void SetBars(int barsLevel)
         {
-            if (life <= 0)
+            if (barsLevel <= 0)
             {
                 _image.gameObject.SetActive(false);
                 return;
             }
-            switch (life)
+            else
+            {
+                _image.gameObject.SetActive(true);
+            }
+            
+            switch (barsLevel)
             {
                 case 1:
                     _image.sprite = _lowLife;

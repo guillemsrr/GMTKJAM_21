@@ -1,9 +1,11 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
-{    
+{
+    private const float SPEED_AUGMENT = 1f;
+    private const float MAX_BOOST_AUGMENT = 3f;
+    
     [SerializeField]
     private float _speed = 100;
     [SerializeField]
@@ -11,9 +13,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float _maxSpeed = 10;
 
+    private float _boostSpeed;
+
     private Vector2 _userInput;
 
     private Rigidbody _rigidbody;
+    
 
     void Start()
     {
@@ -46,19 +51,26 @@ public class PlayerController : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         _rigidbody.AddForce(force);
-        if (_rigidbody.velocity.magnitude > _maxSpeed)
+        if (_rigidbody.velocity.magnitude > _maxSpeed + _boostSpeed)
         {
-            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSpeed);
+            _rigidbody.velocity = Vector3.ClampMagnitude(_rigidbody.velocity, _maxSpeed + _boostSpeed);
         }
     }
 
     public void SetHigherBaseSpeed()
     {
-        
+        _maxSpeed += SPEED_AUGMENT;
     }
 
-    public void Boost()
+    public void ApplyBoostSpeed()
     {
+        if (_boostSpeed >= MAX_BOOST_AUGMENT) return;
         
+        _boostSpeed += SPEED_AUGMENT;
+    }
+    
+    public void ResetBoostSpeed()
+    {
+        _boostSpeed = 0;
     }
 }

@@ -18,6 +18,7 @@ namespace Controllers
         
         public delegate void Dead();
         public event Dead DeadEvent;
+        
 
         private const int FULL_LIFE = 3;
         
@@ -71,7 +72,7 @@ namespace Controllers
             StartCoroutine(ImmunityTimer());
             _playerVisualsHandler.ChangeVisualFromLevelUp(Level);
             _playerController.SetHigherBaseSpeed();
-            _playerController.Boost();
+            _playerController.ApplyBoostSpeed();
         }
 
         private void EatSpaceBody(SpaceBodyControllerBase eatenBody)
@@ -85,12 +86,13 @@ namespace Controllers
 
         public void EatMissionPlanet()
         {
-            _playerController.Boost();
+            _playerController.ApplyBoostSpeed();
         }
         
         public void EatIncorrectPlanet(SpaceBodyControllerBase eatenBody)
         {
             DamagedEvent?.Invoke(eatenBody.PlayerDamage);
+            _playerController.ResetBoostSpeed();
         }
 
         private IEnumerator ImmunityTimer()
@@ -117,7 +119,5 @@ namespace Controllers
                 LevelManager.Instance.LoadGame();
             }
         }
-        
-        
     }
 }
