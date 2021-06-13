@@ -45,7 +45,7 @@ public class GravityAttractor : MonoBehaviour
         _trigger.SetActive(false);
         Destroy(_trigger.GetComponent<SphereCollider>());
 
-        if (_spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.Commet)
+        if (_spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.Commet && _spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.BlackHole)
         {
             _newDirection = new Vector3(UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f), UnityEngine.Random.Range(-10.0f, 10.0f));
 
@@ -101,8 +101,8 @@ public class GravityAttractor : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
-        if (_spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.Commet)
+
+        if (_spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.Commet && _spaceBodyControllerBase.Type != SpaceBodyControllerBase.SpaceBodyType.BlackHole)
             transform.Rotate(0, (360 / (5)) * Time.deltaTime, 0, Space.Self);
        
         if (!_dontAffectForce)
