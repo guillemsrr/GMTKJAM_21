@@ -16,6 +16,11 @@ namespace Controllers
 
         private Coroutine _scaleCoroutine;
         
+        [SerializeField]
+        private GameObject _gameEffects;
+        [SerializeField]
+        private GameObject _vfx;
+
         public void ChangeVisualFromLevelUp(int level)
         {
             if (_scaleCoroutine != null)
@@ -26,14 +31,20 @@ namespace Controllers
             _scaleCoroutine = StartCoroutine(ScaleAnimation(level + 1, SCALE_SPEED));
         }
         
-        public void ChangeVisualFromEating(SpaceBodyControllerBase.SpaceBodyType eatenType)
+        public void ChangeVisualFromEating(bool isCorrect)
         {
-            
+            if (isCorrect)
+            {
+                _gameEffects.SetActive(false);
+                _gameEffects.SetActive(true);
+            }
         }
 
         public void DeathVisuals()
         {
-            
+            _vfx.SetActive(false);
+
+            CoreManager.Instance.GetDialogeCanvas.ActivateCanvasWithText("Press R for Restart");
         }
 
         public void BoostScaleOver()

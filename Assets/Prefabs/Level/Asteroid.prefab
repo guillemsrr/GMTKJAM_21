@@ -18,6 +18,7 @@ MonoBehaviour:
   _type: 1
   _eatAudio: {fileID: 8300000, guid: d44d916a78545bc4f82a9262e41b48ec, type: 3}
   _playerDamage: 1
+  _particleSystems: []
 --- !u!1001 &6563028026587071602
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -26,11 +26,11 @@ namespace LevelGenerator
         private const float MINIMUM_BODY_DISTANCE = 10f;
         private const int NUMBER_BODIES = 70;
 
-        private const int NUMBER_ASTEROIDS = 30;
-        private const int NUMBER_COMMETS = 10;
+        private const int NUMBER_ASTEROIDS = 20;
+        private const int NUMBER_COMMETS = 15;
         private const int NUMBER_PLANETS = 15;
-        private const int NUMBER_STARS = 10;
-        private const int NUMBER_BLACKHOLES = 5;
+        private const int NUMBER_STARS = 7;
+        private const int NUMBER_BLACKHOLES = 2;
    
 
         private readonly WaitForSeconds POOL_CHECK_WAIT = new WaitForSeconds(0.5f);

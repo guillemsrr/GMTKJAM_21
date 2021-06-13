@@ -4856,6 +4856,7 @@ MonoBehaviour:
   _type: 2
   _eatAudio: {fileID: 8300000, guid: c49ec188f1f0c6c4d8cd205dd39cb6da, type: 3}
   _playerDamage: 2
+  _particleSystems: []
   _maxSpeed: 5
 --- !u!1001 &6026061846096216496
 PrefabInstance:

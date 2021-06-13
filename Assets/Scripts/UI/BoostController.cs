@@ -7,7 +7,7 @@ namespace UI
     public class BoostController: BarsController
     {
         private PlayerStateHandler _playerStateHandler;
-        private readonly WaitForSeconds _boostWaitTime = new WaitForSeconds(1f);
+        private readonly WaitForSeconds _boostWaitTime = new WaitForSeconds(1.5f);
         private Coroutine _boostCoroutine;
         private int _boostLevel;
 

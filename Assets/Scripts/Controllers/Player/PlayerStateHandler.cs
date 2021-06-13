@@ -40,6 +40,9 @@ namespace Controllers
         public PlayerController PlayerController => _playerController;
         public PlayerVisualsHandler PlayerVisualsHandler => _playerVisualsHandler;
 
+        private bool _isFirtFault = true;
+        private bool _isFirtCorrect = true;
+
         private void Awake()
         {
             DamagedEvent += TakeDamage;
@@ -81,20 +84,34 @@ namespace Controllers
         {
             BodyEatenEvent?.Invoke(eatenBody);
             eatenBody.Destroy();
-            _eatenSpaceBodies.Enqueue(eatenBody);
-           _playerVisualsHandler.ChangeVisualFromEating(eatenBody.Type);
+            _eatenSpaceBodies.Enqueue(eatenBody);         
             eatenBody.TriggerEatAudio();
         }
 
         public void EatMissionPlanet()
         {
+            _playerVisualsHandler.ChangeVisualFromEating(true);
             _playerController.ApplyBoostSpeed();
+
+            if (_isFirtCorrect)
+            {
+                _isFirtCorrect = false;
+                CoreManager.Instance.GetDialogeCanvas.ActivateCanvasWithText("Correct! eat the next body!");
+                CoreManager.Instance.GetDialogeCanvas.DeactivateCanvasWithDelay(5f);
+            }
         }
         
         public void EatIncorrectPlanet(SpaceBodyControllerBase eatenBody)
         {
             DamagedEvent?.Invoke(eatenBody.PlayerDamage);
             _playerController.ResetBoostSpeed();
+
+            if (_isFirtFault)
+            {
+                _isFirtFault = false;
+                CoreManager.Instance.GetDialogeCanvas.ActivateCanvasWithText("Incorrect Space body");
+                CoreManager.Instance.GetDialogeCanvas.DeactivateCanvasWithDelay(5f);
+            }
         }
 
         private IEnumerator ImmunityTimer()

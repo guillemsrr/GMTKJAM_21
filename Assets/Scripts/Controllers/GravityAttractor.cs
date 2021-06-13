@@ -40,8 +40,9 @@ public class GravityAttractor : MonoBehaviour
         _trigger.transform.parent = transform.parent;
         _trigger.GetComponent<Renderer>().material = _triggerMat;
         _trigger.transform.position = transform.position;
-        _trigger.transform.localScale = new Vector3(_sphereCollider.radius*2,1, _sphereCollider.radius*2);
+        _trigger.transform.localScale = new Vector3(_sphereCollider.radius*2,0.01f, _sphereCollider.radius*2);
         _trigger.name = "Orbit Area";
+        _trigger.layer = LayerMask.NameToLayer("Trigger");
         _trigger.SetActive(false);
         Destroy(_trigger.GetComponent<SphereCollider>());
 

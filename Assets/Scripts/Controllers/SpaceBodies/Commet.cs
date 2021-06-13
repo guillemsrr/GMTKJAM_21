@@ -12,11 +12,16 @@ namespace Controllers
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            AddForce((Vector3.forward  + Vector3.left) * 100);
         }
 
         private void Update()
         {
-            if (_rigidbody.velocity.magnitude == 0) return;
+            if (_rigidbody.velocity.magnitude == 0)
+            {
+                AddForce((Vector3.forward + Vector3.left) * 100);
+                return;
+            }
             
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
         }
