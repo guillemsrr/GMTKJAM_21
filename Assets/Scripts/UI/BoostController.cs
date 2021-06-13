@@ -43,7 +43,7 @@ namespace UI
 
         public void ResetBoostBars()
         {
-            while (_boostLevel != 0)
+            while (_boostLevel >= 0)
             {
                 DecreaseBoost();
             }

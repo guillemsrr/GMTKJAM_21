@@ -16,6 +16,8 @@ namespace Controllers
 
         private void Update()
         {
+            if (_rigidbody.velocity.magnitude == 0) return;
+            
             transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
         }
 
