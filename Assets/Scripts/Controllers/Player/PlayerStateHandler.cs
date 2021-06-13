@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Controllers.VFX;
-using UnityEditor.SceneTemplate;
 using UnityEngine;
 
 namespace Controllers
