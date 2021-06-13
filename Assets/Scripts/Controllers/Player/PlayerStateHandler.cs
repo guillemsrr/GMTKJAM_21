@@ -53,6 +53,8 @@ namespace Controllers
 
         private void TakeDamage(int damageAmount)
         {
+            AudioManager.Instance.Play(_eatErrorClip);
+
             if (_isImmune) return;
             
             _life -= damageAmount;
@@ -64,10 +66,6 @@ namespace Controllers
                 AudioManager.Instance.Play(_deadClip);
                 DeadEvent?.Invoke();
                 InstantiateVFX(_deathTemporalVFX);
-            }
-            else
-            {
-                AudioManager.Instance.Play(_eatErrorClip);
             }
         }
 
