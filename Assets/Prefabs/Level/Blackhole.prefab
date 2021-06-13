@@ -147,6 +147,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blackhole
       objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887921924, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -159,7 +167,9 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+    - {fileID: 2880314973887921924, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
 --- !u!1 &6773320156142632009 stripped
 GameObject:
