@@ -9,14 +9,8 @@ namespace Controllers.VFX
 
         private void Start()
         {
-            StartCoroutine(DestroyTimer());
+            Destroy(gameObject, _deathTimer);
         }
-
-        private IEnumerator DestroyTimer()
-        {
-            yield return new WaitForSeconds(_deathTimer);
-            
-            Destroy(this);
-        }
+        
     }
 }
