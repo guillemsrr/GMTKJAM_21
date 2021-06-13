@@ -18,6 +18,8 @@ namespace UI
 
             _playerStateHandler.DeadEvent += ApplyGameOver;
             _playerStateHandler.BodyEatenEvent += EatPlanet;
+            _playerStateHandler.LevelUpedEvent += _boostController.MaxBoost;
+            _boostController.Initialize(_playerStateHandler);
         }
         
 
@@ -36,7 +38,6 @@ namespace UI
                 if (_missionsHandler.AreAllMissionsAccomplished)
                 {
                     _playerStateHandler.LevelUp();
-                    _boostController.MaxBoost();
                     StartCoroutine(CreateMissionsAfterTime());
                 }
             }

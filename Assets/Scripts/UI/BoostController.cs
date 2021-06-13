@@ -1,15 +1,20 @@
 using System.Collections;
+using Controllers;
 using UnityEngine;
 
 namespace UI
 {
     public class BoostController: BarsController
     {
-        [SerializeField] private PlayerController _playerController;
-        
-        private readonly WaitForSeconds _boostWaitTime = new WaitForSeconds(2f);
+        private PlayerStateHandler _playerStateHandler;
+        private readonly WaitForSeconds _boostWaitTime = new WaitForSeconds(1f);
         private Coroutine _boostCoroutine;
         private int _boostLevel;
+
+        public void Initialize(PlayerStateHandler playerStateHandler)
+        {
+            _playerStateHandler = playerStateHandler;
+        }
 
         public void MaxBoost()
         {
@@ -22,7 +27,7 @@ namespace UI
             if(_boostLevel < 3)
                 SetBars(++_boostLevel);
 
-            _playerController.GetSoundTrack._soundTrackVolume = _boostLevel;
+            _playerStateHandler.PlayerController.GetSoundTrack._soundTrackVolume = _boostLevel;
 
             if (_boostCoroutine != null)
             {
@@ -37,10 +42,11 @@ namespace UI
             SetBars(--_boostLevel);
             if (_boostLevel == 0)
             {                
-                _playerController.ResetBoostSpeed();
+                _playerStateHandler.PlayerController.ResetBoostSpeed();
+                _playerStateHandler.PlayerVisualsHandler.BoostScaleOver();
             }
 
-            _playerController.GetSoundTrack._soundTrackVolume = _boostLevel;
+            _playerStateHandler.PlayerController.GetSoundTrack._soundTrackVolume = _boostLevel;
         }
         
         private IEnumerator StopBoostAfterTime()
