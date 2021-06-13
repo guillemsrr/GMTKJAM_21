@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils;
 
 namespace Controllers
@@ -11,6 +12,9 @@ namespace Controllers
         
         [SerializeField] private Transform _missionContainer;
         [SerializeField] private MissionHandler _missionModel;
+        [SerializeField] private Text _scoreTxt;
+
+        private int _score = 0;
 
         private List<MissionHandler> _missions = new List<MissionHandler>();
 
@@ -69,6 +73,9 @@ namespace Controllers
                 {
                     _numberMissionAccomplished++;
                     missionHandler.Accomplish();
+                    _score += 1 * _numberMissionAccomplished;
+
+                    _scoreTxt.text = "" + _score;
                     return true;
                 }
             }

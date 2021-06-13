@@ -177,8 +177,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: _gravity
+      value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2880314973887922043, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}
+      propertyPath: scaleTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2880314973887921925, guid: 30b73f29844ba9546a593a3e4dc0fc65, type: 3}

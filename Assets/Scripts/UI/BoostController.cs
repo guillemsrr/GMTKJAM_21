@@ -28,6 +28,7 @@ namespace UI
                 SetBars(++_boostLevel);
 
             _playerStateHandler.PlayerController.GetSoundTrack._soundTrackVolume = _boostLevel;
+            CoreManager.Instance.GetSoundTrack._soundTrackVolume = 0.35f;
 
             if (_boostCoroutine != null)
             {
@@ -41,12 +42,14 @@ namespace UI
         {
             SetBars(--_boostLevel);
             if (_boostLevel == 0)
-            {                
+            {
+                CoreManager.Instance.GetSoundTrack._soundTrackVolume = 1f;
                 _playerStateHandler.PlayerController.ResetBoostSpeed();
                 _playerStateHandler.PlayerVisualsHandler.BoostScaleOver();
             }
 
             _playerStateHandler.PlayerController.GetSoundTrack._soundTrackVolume = _boostLevel;
+            CoreManager.Instance.GetSoundTrack._soundTrackVolume = 1.1f - _boostLevel;
         }
         
         private IEnumerator StopBoostAfterTime()
