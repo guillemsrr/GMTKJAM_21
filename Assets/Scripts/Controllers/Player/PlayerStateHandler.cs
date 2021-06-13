@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Cinemachine;
+using Controllers.VFX;
 using UnityEngine;
 
 namespace Controllers
@@ -28,6 +28,7 @@ namespace Controllers
         [SerializeField] private PlayerVisualsHandler _playerVisualsHandler;
         [SerializeField] private AudioClip _deadClip;
         [SerializeField] private AudioClip _eatErrorClip;
+        [SerializeField] private TemporalVFX _eaTemporalVFX;
 
         private int _life = FULL_LIFE;
         public int Level { get; private set; }
@@ -124,10 +125,12 @@ namespace Controllers
         private void OnTriggerEnter(Collider other)
         {
             if (IsDead) return;
-            
+
             if (other.tag.Equals("SpaceBody"))
             {
                 EatSpaceBody(other.GetComponent<SpaceBodyControllerBase>());
+                TemporalVFX explosion = Instantiate(_eaTemporalVFX);
+                explosion.transform.position = transform.position;
             }
         }
 
