@@ -53,6 +53,7 @@ namespace Controllers
             {
                 _sfx = GameObject.Instantiate(planetVisual.Sfx, transform.position,transform.rotation ,transform);
             }
+            _particleSystems = GetComponentsInChildren<ParticleSystem>();
 
         }       
 

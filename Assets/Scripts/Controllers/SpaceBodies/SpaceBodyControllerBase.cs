@@ -29,7 +29,7 @@ namespace Controllers
         private Vector3 _baseScale;
 
         [SerializeField]
-        private ParticleSystem[] _particleSystems;
+        protected ParticleSystem[] _particleSystems;
 
         protected void Awake()
         {
@@ -39,7 +39,8 @@ namespace Controllers
 
         public virtual void Initialize()
         {
-            _particleSystems = GetComponentsInChildren<ParticleSystem>(true);
+            _particleSystems = null;
+            _particleSystems = GetComponentsInChildren<ParticleSystem>();
         }
 
         public virtual void TriggerEatAudio()
@@ -75,6 +76,7 @@ namespace Controllers
 
         public virtual void Destroy()
         {
+            _particleSystems = null;
             CoreManager.Instance.GetLevelGenerator.DestroySpaceBody(_type, this);
             
             //instantiate destroy visual
