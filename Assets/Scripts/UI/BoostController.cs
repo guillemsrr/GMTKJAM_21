@@ -13,7 +13,10 @@ namespace UI
         
         public void Boost()
         {
-            SetBars(++_boostLevel);
+            if(_boostLevel < 3)
+                SetBars(++_boostLevel);
+
+            _playerController.GetSoundTrack._soundTrackVolume = _boostLevel;
 
             if (_boostCoroutine != null)
             {
@@ -27,9 +30,11 @@ namespace UI
         {
             SetBars(--_boostLevel);
             if (_boostLevel == 0)
-            {
+            {                
                 _playerController.ResetBoostSpeed();
             }
+
+            _playerController.GetSoundTrack._soundTrackVolume = _boostLevel;
         }
         
         private IEnumerator StopBoostAfterTime()

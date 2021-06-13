@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     private Vector2 _userInput;
 
     private Rigidbody _rigidbody;
-    
+    private SoundTrack _soundTrack;
+    public SoundTrack GetSoundTrack { get { return _soundTrack; } }
 
     void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();       
+        _rigidbody = GetComponent<Rigidbody>();
+        _soundTrack = GetComponent<SoundTrack>();
     }
 
     void FixedUpdate()
