@@ -1,3 +1,4 @@
+using System.Collections;
 using Controllers;
 using UnityEngine;
 
@@ -27,16 +28,16 @@ namespace UI
 
         private void EatPlanet(SpaceBodyControllerBase spaceBody)
         {
-            if (_missionsHandler.IsTypeInMission(spaceBody.Type))
+            if (_missionsHandler.IsTypeInMission(spaceBody))
             {
                 _playerStateHandler.EatMissionPlanet();
-                _missionsHandler.MissionAccomplished();
                 _boostController.Boost();
                 
                 if (_missionsHandler.AreAllMissionsAccomplished)
                 {
                     _playerStateHandler.LevelUp();
-                    _missionsHandler.CreateMissions();
+                    _boostController.MaxBoost();
+                    StartCoroutine(CreateMissionsAfterTime());
                 }
             }
             else
@@ -46,6 +47,12 @@ namespace UI
             }
             
             _lifeController.SetBars(_playerStateHandler.Life);
+        }
+
+        private IEnumerator CreateMissionsAfterTime()
+        {
+            yield return new WaitForSeconds(1f);
+            _missionsHandler.CreateMissions();
         }
     }
 }

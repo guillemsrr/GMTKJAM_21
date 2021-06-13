@@ -30,6 +30,8 @@ namespace Controllers
 
         [SerializeField]
         private GameObject _sfx;
+        
+        public PlanetType SubType { get; private set; }
 
         public override void Initialize()
         {
@@ -38,8 +40,8 @@ namespace Controllers
 
         private void ApplyRandomVisuals()
         {
-            PlanetType planetType = RandomEnum.GetRandomFromEnum<PlanetType>();
-            PlanetVisual planetVisual = _planetVisualsByType[planetType];
+            SubType = RandomEnum.GetRandomFromEnum<PlanetType>();
+            PlanetVisual planetVisual = _planetVisualsByType[SubType];
 
             _meshRenderer.material = planetVisual.Material;
             _meshFilter.mesh = planetVisual.Mesh;
