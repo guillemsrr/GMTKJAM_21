@@ -146,7 +146,7 @@ namespace Controllers
 
         private void InstantiateVFX(TemporalVFX vfx)
         {
-            TemporalVFX explosion = Instantiate(_eaTemporalVFX);
+            TemporalVFX explosion = Instantiate(vfx);
             explosion.transform.position = transform.position;
         }
     }
