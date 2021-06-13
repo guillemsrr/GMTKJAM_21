@@ -5195,7 +5195,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 2
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 3526682804000511050}
   scalingMode: 1
   randomSeed: 0

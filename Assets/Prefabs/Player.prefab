@@ -152,6 +152,8 @@ MonoBehaviour:
   _playerVisualsHandler: {fileID: 7946823569619257701}
   _deadClip: {fileID: 8300000, guid: a88f4324a95344f44ae04ae16c5f2cf6, type: 3}
   _eatErrorClip: {fileID: 8300000, guid: 7f3f4376c06bacf41adf60c28c01d283, type: 3}
+  _eaTemporalVFX: {fileID: 8566638944693045691, guid: 40bc0a955aa0bfd4a9e76b16a2f311a2, type: 3}
+  _deathTemporalVFX: {fileID: 5333323813958323231, guid: be7133501c0fee944b544a2e893d9898, type: 3}
 --- !u!114 &7946823569619257701
 MonoBehaviour:
   m_ObjectHideFlags: 0
