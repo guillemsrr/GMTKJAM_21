@@ -21,6 +21,7 @@
 
 # Visual Studio cache directory
 .vs/
+.vsconfig
 
 # Gradle cache directory
 .gradle/
@@ -70,3 +71,4 @@ fmod_editor.log
 /FMOD/**.cache
 /FMOD/**.restore
 
+UserSettings/EditorUserSettings.asset

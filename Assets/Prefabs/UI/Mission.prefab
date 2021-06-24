@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6813571141832832592
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6813571141832832593}
+  - component: {fileID: 6813571141832832599}
+  - component: {fileID: 6813571141832832598}
+  - component: {fileID: 7292819210632560094}
+  m_Layer: 5
+  m_Name: Mission
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6813571141832832593
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813571141832832592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 75, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6813571141832832599
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813571141832832592}
+  m_CullTransparentMesh: 1
+--- !u!114 &6813571141832832598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813571141832832592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 31a5bf11a639925489ffd8ca3c6a08a2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7292819210632560094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813571141832832592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99f2a2a5980fa2942bd70abbf0f8861d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 6813571141832832598}
+  _commetLogo:
+    _unaquired: {fileID: 21300000, guid: 72acf7793313fe54594fd4c4c5072c5a, type: 3}
+    _aquired: {fileID: 21300000, guid: 07afb3e4ca4ed0d4fa2c7ca3544b84a2, type: 3}
+  _asteroidLogo:
+    _unaquired: {fileID: 21300000, guid: 1267c8822ea31e94a9415c229b34b759, type: 3}
+    _aquired: {fileID: 21300000, guid: 5fa0c2218ce2e924c9942611b37d7164, type: 3}
+  _magmaLogo:
+    _unaquired: {fileID: 21300000, guid: a1ccedd9333f06e44b85afbf620e8792, type: 3}
+    _aquired: {fileID: 21300000, guid: 42ef316bf450d0049b13ecd7adef6c6d, type: 3}
+  _iceLogo:
+    _unaquired: {fileID: 21300000, guid: 17bcf7e02f423e84b8c8d2b598f0003f, type: 3}
+    _aquired: {fileID: 21300000, guid: 87d94f27bb7145c429bd2a35da59a4ac, type: 3}
+  _radioActiveLogo:
+    _unaquired: {fileID: 21300000, guid: 6594f0f2fa49fb24ea6de30a400e9611, type: 3}
+    _aquired: {fileID: 21300000, guid: 84f1d3e8794409749913f6ec70507ab2, type: 3}
+  _waterLogo:
+    _unaquired: {fileID: 21300000, guid: 4440b41fcd872d043a5ef09ab642c570, type: 3}
+    _aquired: {fileID: 21300000, guid: 3f98bf359888d3e49b7bccce421ca5e5, type: 3}
+  _tierraLogo:
+    _unaquired: {fileID: 21300000, guid: 31a5bf11a639925489ffd8ca3c6a08a2, type: 3}
+    _aquired: {fileID: 21300000, guid: 6061d85fc1a92b14aa32c22c232f7a80, type: 3}
